@@ -9,49 +9,84 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package SnoMoDays
+ * @package Skin_Haven
  */
 
 get_header();
 ?>
+<section class="banner">
+	<h1>
+	WELCOME TO SnoMo Days 
+	Winter Festival
+	</h1>
+	<p>
+	Join us for SnoMo Days, hosted by the Lions Club! Celebrate Alberta’s winter with family-friendly activities, from thrilling sports to cozy community fun. Entry fees support local charities, making every moment count!
+	</p>
+	<button>
+		Learn More
+	</button>
+</section>
+</header><!-- #masthead -->
 
 	<main id="primary" class="site-main">
+		<!-- Site Banner !-->
 
-		<?php
-		if ( have_posts() ) :
+		<!-- Featured events section !-->
+		<section class="featured">
+			<h2>Featured</h2>
+			<!-- query loop for featured events goes here !-->
+			<button>
+				view all events
+			</button>
+		</section>
+		<!-- About us section !-->
+		<section>
+			<h2>About Us</h2>
+			<Section class='snomodays'>
+				<h3>SNOMO DAYS</h3>
+				<p>
+				SnoMo Days is an Alberta Winter Festival, dedicated to supporting motorized and non-motorized winter sports and family orientated winter leisure activities. 
+				</p>
+				<button>
+					READ MORE
+				</button>
+			</Section>
+			<section class='lionsclub'>
+				<h3>LIONS CLUB</h3>
+				<p>Lions of Alberta Foundation was created to facilitate a body of individuals to unite the Lions Clubs of Alberta in order to better serve the communities of our province.</p>
+				<button>
+					READ MORE
+				</button>
+			</section>
+		</section>
+		
+		<!-- Testimonials section !-->
+		 <section>
+			<h2>Voices from the Festival</h2>
+			<!-- query loop for testimonials goes here !-->
+		 </section>
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
+		 <!-- Volunteer section !-->
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+		<section class='volunteer'>
+			<div>
+				<h2>Be the Magic: <br> Volunteer with us</h2>
+				<p>Help bring the excitement to life! Join our team and help make this winter festival unforgettable.</p>
+				<button> Sign up now</button>
+			</div>
+			<img src="" alt="">
+		</section>
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
+		 <!-- Sponsors section !-->
+		  <section>
+			<h2>Sponsors</h2>
+			<img src="" alt="">
+			<img src="" alt="">
+			<img src="" alt="">
+			<img src="" alt="">
+			<img src="" alt="">
+		  </section>
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

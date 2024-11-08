@@ -14,15 +14,19 @@
 
 get_header();
 ?>
-
+    <Section>
+<h1>Gallery</h1>
+<p>Relive the excitement of SnoMo Days through our photo gallery! Browse memorable moments from past events, featuring thrilling activities, happy families, and our vibrant community coming together to celebrate winter fun.</p>
+</Section>
+</header><!-- #masthead -->
 	<main id="primary" class="site-main">
+        <Section class="results">
+            <div class='grid'>
 
-		<?php
-		get_template_part( 'template-parts/content', 'page' );
-		?>
-
+            </div>
+        </Section>
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
+
 get_footer();
