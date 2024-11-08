@@ -14,25 +14,26 @@
 
 get_header();
 ?>
-
+    <Section>
+<h1>Events</h1>
+<p>Enjoy a weekend of winter fun with daily activities for all ages, including snowmobile rallies, ice skating, monster trucks, and evening fireworks. Don’t miss out on the festivities at Alberta Beach!</p>
+</Section>
+</header><!-- #masthead -->
+    
 	<main id="primary" class="site-main">
-
-		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
+    
+        <section class='events'>
+            <div>
+            
+            </div>
+            <section class='cancelled'>
+                <h3>CANCELLED EVENTS</h3>
+                <!-- query loop for cancelled events -->
+            </section>
+        </section>
+    
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
+
 get_footer();
