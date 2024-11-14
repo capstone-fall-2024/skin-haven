@@ -93,6 +93,7 @@ main {
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
  */
+ 
 h1 {
 	font-size: 2em;
 	margin: 0.67em 0;
@@ -474,7 +475,7 @@ big {
 --------------------------------------------- */
 body {
 	background: #fff;
-	background-color: #ffafcc;
+	background-color: #F7F5EB;
 }
 
 hr {
@@ -486,21 +487,21 @@ hr {
 
 ul,
 ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0;
+	padding: 0 !important;
 }
 
 ul {
-	list-style: disc;
+	list-style: none;
 }
 
 ol {
 	list-style: decimal;
 }
 
-li > ul,
-li > ol {
-	margin-bottom: 0;
-	margin-left: 1.5em;
+li>ul,
+li>ol {
+	margin: 0;
 }
 
 dt {
@@ -675,8 +676,8 @@ textarea {
 	top: 0;
 }
 
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
+.main-navigation ul ul li:hover>ul,
+.main-navigation ul ul li.focus>ul {
 	display: block;
 	left: auto;
 }
@@ -685,8 +686,8 @@ textarea {
 	width: 200px;
 }
 
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
+.main-navigation ul li:hover>ul,
+.main-navigation ul li.focus>ul {
 	left: auto;
 }
 
@@ -717,10 +718,8 @@ textarea {
 }
 
 .site-main .comment-navigation,
-.site-main
-.posts-navigation,
-.site-main
-.post-navigation {
+.site-main .posts-navigation,
+.site-main .post-navigation {
 	margin: 0 0 1.5em;
 }
 
@@ -968,4 +967,100 @@ textarea {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 1.5em;
+}
+
+.container {
+	max-width: 60rem;
+	margin: 0 auto;
+	padding: 0 1.5rem;
+}
+
+/* OFF ROAD SAFETY */
+
+.off-road-safety h2 {
+	text-transform: uppercase;
+}
+
+.off-road-safety img {
+	margin-top: 1rem;
+	border-radius: 13px;
+}
+
+.guidelines,
+.off-highway {
+	background-color: white;
+	padding: 2rem 0;
+}
+
+.guidelines ul {
+	list-style-type: disc; 
+	margin-left: 2rem;
+}
+
+.code-of-ethics h2 {
+	text-align: center;
+}
+
+.code-of-ethics {
+	padding: 2rem 0;
+}
+/* Main container for the title and snowflakes */
+.title-container {
+    position: relative;
+    text-align: center;
+    padding: 20px 0;
+    max-width: 600px; /* Adjust as needed */
+    margin: 0 auto;
+   
+}
+
+/* Style for the title text */
+.title-text {
+    margin: 0;
+    padding: 10px 0;
+}
+
+/* Style for snowflake images */
+.snowflake {
+    position: absolute;
+    width: 120px;
+    height: auto;
+}
+
+/* Left snowflake */
+.snowflake-left {
+    top: 0px; /* Position slightly above the container */
+    left: 0%; /* Position relative to container width */
+    transform: translateY(-50%);
+}
+
+/* Right snowflake */
+.snowflake-right {
+    top: 0px; /* Position slightly above the container */
+    right: 0%; /* Position relative to container width */
+    transform: translateY(-50%);
+}
+
+/* Hanging line effect for left snowflake */
+.snowflake-left::after {
+    content: '';
+    position: absolute;
+    top: 100%; /* Position directly below the snowflake */
+    left: 50%;
+    width: 2px;
+    height: 20px; /* Adjust the height to control line length */
+    background-color: #cccccc;
+    transform: translateX(-50%);
+}
+
+/* Hanging line effect for right snowflake */
+.snowflake-right::after {
+    content: '';
+    position: absolute;
+    top: 100%; /* Position directly below the snowflake */
+    left: 50%;
+    width: 2px;
+    height: 20px; /* Adjust the height to control line length */
+    background-color: #cccccc;
+    transform: translateX(-50%);
 }
