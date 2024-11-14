@@ -1,7 +1,7 @@
 /*!
-Theme Name: SnoMo Days
+Theme Name: SnoMoDays
 Theme URI: http://underscores.me/
-Author: TerraForm
+Author: Underscores.me
 Author URI: http://underscores.me/
 Description: Description
 Version: 1.0.0
@@ -9,13 +9,13 @@ Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
 License URI: LICENSE
-Text Domain: skin-haven
+Text Domain: snomodays
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned.
 
-Skin Haven is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+SnoMoDays is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
@@ -70,6 +70,7 @@ html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
 }
+
 
 /* Sections
 	 ========================================================================== */
@@ -473,6 +474,7 @@ big {
 --------------------------------------------- */
 body {
 	background: #fff;
+	/* background-color: #ffafcc; */
 }
 
 hr {
@@ -495,8 +497,8 @@ ol {
 	list-style: decimal;
 }
 
-li>ul,
-li>ol {
+li > ul,
+li > ol {
 	margin-bottom: 0;
 	margin-left: 1.5em;
 }
@@ -673,8 +675,8 @@ textarea {
 	top: 0;
 }
 
-.main-navigation ul ul li:hover>ul,
-.main-navigation ul ul li.focus>ul {
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
 	display: block;
 	left: auto;
 }
@@ -683,8 +685,8 @@ textarea {
 	width: 200px;
 }
 
-.main-navigation ul li:hover>ul,
-.main-navigation ul li.focus>ul {
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
 	left: auto;
 }
 
@@ -715,8 +717,10 @@ textarea {
 }
 
 .site-main .comment-navigation,
-.site-main .posts-navigation,
-.site-main .post-navigation {
+.site-main
+.posts-navigation,
+.site-main
+.post-navigation {
 	margin: 0 0 1.5em;
 }
 
@@ -966,104 +970,41 @@ textarea {
 	margin-bottom: 1.5em;
 }
 
-.site-header img{
-	width: 75px;
+/* about us */
 
+.container {
+    max-width: 60rem;
+    margin: 0 auto;
 }
 
-/*--------------- EVENTS POPUP -------------- */
-/* Basic modal styles */
-.modal {
-    position: fixed;
-    top: 0;
-    right: 0; /* Position it to the right side of the screen */
-    bottom: 0;
-    width: 50%; /* Modal takes up 50% of the screen width */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    display: none;
-    z-index: 9999;
-    overflow-y: auto; /* Allow scrolling if content overflows */
+body{
+	line-height: 1.6;
 }
 
-.modal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+.title {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; 
 }
 
-.modal-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%; /* Fill the right half of the screen */
-    height: 100%; /* Full height of the screen */
-    background-color: #fff;
-    padding: 20px;
-    overflow-y: auto; /* Enable scroll if content is taller than the screen */
-    border-left: 3px solid #ddd; /* Add a border on the left side of the modal */
+.line {
+    width: 70%; 
+    max-width: 400px;
+    height: 2px; 
+    background-color: #2c95c3; 
+    margin-left: 1.5rem;
 }
 
-.modal-header {
-    position: relative;
-    padding-top: 15px;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid #ddd;
-    text-align: center; /* Center the title */
+.snomo {
+    background-color: #f7f5eb; 
+    padding: 1.5rem;
+    margin-bottom: 3rem;
 }
 
-.modal-body h2 {
-    margin: 0;
-    font-size: 24px;
+.lions-club {
+    background-color: #ffffff; 
+    padding: 1.5rem;
+    margin-bottom: 3rem;
 }
-
-.close-modal {
-    position: absolute;
-    top: 10px;
-    left: 10px; /* Move the close button to the left */
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #333;
-}
-
-.close-modal:hover {
-    color: #f00;
-}
-
-/* Modal Body */
-.modal-body {
-    margin-top: 20px;
-}
-
-.modal-body img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 15px;
-}
-
-/* Optional: Add smooth fade-in/fade-out transition for the modal */
-.modal, .modal-container {
-    transition: opacity 0.3s ease;
-}
-
-.event {
-	cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .modal {
-        width: 100%;  /* Full width on smaller screens */
-    }
-    .modal-container {
-        width: 100%;
-        padding: 10px;
-    }
-    .modal-header h2 {
-        font-size: 20px;  /* Smaller font size on smaller screens */
-    }
-}
-
 
