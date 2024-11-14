@@ -1,10 +1,10 @@
 <?php
 /**
- * SnoMoDays functions and definitions
+ * Skin Haven functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package SnoMoDays
+ * @package Skin_Haven
  */
 
 if ( ! defined( '_S_VERSION' ) ) {
@@ -19,14 +19,14 @@ if ( ! defined( '_S_VERSION' ) ) {
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function snomodays_setup() {
+function skin_haven_setup() {
 	/*
 		* Make theme available for translation.
 		* Translations can be filed in the /languages/ directory.
-		* If you're building a theme based on SnoMoDays, use a find and replace
-		* to change 'snomodays' to the name of your theme in all the template files.
+		* If you're building a theme based on Skin Haven, use a find and replace
+		* to change 'skin-haven' to the name of your theme in all the template files.
 		*/
-	load_theme_textdomain( 'snomodays', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'skin-haven', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -49,7 +49,7 @@ function snomodays_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'snomodays' ),
+			'menu-1' => esc_html__( 'Primary', 'skin-haven' ),
 		)
 	);
 
@@ -74,7 +74,7 @@ function snomodays_setup() {
 	add_theme_support(
 		'custom-background',
 		apply_filters(
-			'snomodays_custom_background_args',
+			'skin_haven_custom_background_args',
 			array(
 				'default-color' => 'ffffff',
 				'default-image' => '',
@@ -100,7 +100,7 @@ function snomodays_setup() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'snomodays_setup' );
+add_action( 'after_setup_theme', 'skin_haven_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -109,22 +109,22 @@ add_action( 'after_setup_theme', 'snomodays_setup' );
  *
  * @global int $content_width
  */
-function snomodays_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'snomodays_content_width', 640 );
+function skin_haven_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'skin_haven_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'snomodays_content_width', 0 );
+add_action( 'after_setup_theme', 'skin_haven_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function snomodays_widgets_init() {
+function skin_haven_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'snomodays' ),
+			'name'          => esc_html__( 'Sidebar', 'skin-haven' ),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'snomodays' ),
+			'description'   => esc_html__( 'Add widgets here.', 'skin-haven' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -132,22 +132,22 @@ function snomodays_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'snomodays_widgets_init' );
+add_action( 'widgets_init', 'skin_haven_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function snomodays_scripts() {
-	wp_enqueue_style( 'snomodays-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'snomodays-style', 'rtl', 'replace' );
+function skin_haven_scripts() {
+	wp_enqueue_style( 'skin-haven-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_style_add_data( 'skin-haven-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'snomodays-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'skin-haven-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'snomodays_scripts' );
+add_action( 'wp_enqueue_scripts', 'skin_haven_scripts' );
 
 /**
  * Implement the Custom Header feature.
@@ -176,3 +176,101 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+function enqueue_ajax_filter_scripts() {
+    // Enqueue the jQuery library (if it's not already included)
+    wp_enqueue_script('jquery');
+    
+    // Enqueue custom JS file for the AJAX functionality
+    wp_enqueue_script('filter-events-js', get_template_directory_uri() . '/js/filter-events.js', array('jquery'), null, true);
+    
+    // Localize the script to pass the ajaxurl variable to the script
+    wp_localize_script('filter-events-js', 'ajaxurl', admin_url('admin-ajax.php'));
+}
+add_action('wp_enqueue_scripts', 'enqueue_ajax_filter_scripts');
+
+
+
+function filter_events_by_category() {
+    // Check if a category is passed
+    if ( isset($_GET['category']) ) {
+        $category = sanitize_text_field($_GET['category']);
+
+        // Define the category slugs (you could customize this based on your actual categories)
+        $category_map = array(
+            'saturday' => 'saturday', 
+            'sunday' => 'sunday',    
+            'monday' => 'monday'      
+        );
+
+        // Check if the category exists in the map
+        if (array_key_exists($category, $category_map)) {
+            // Get the category ID from the slug
+            $category_slug = $category_map[$category];
+            $category_id = get_term_by('slug', $category_slug, 'category')->term_id;
+            
+            // WP Query to fetch posts by category
+            $args = array(
+                'post_type' => 'post',  // You can change this to a custom post type if needed
+                'posts_per_page' => 5,  // Adjust number of posts to display
+                'category__in' => array($category_id),
+                'orderby' => 'date',
+                'order' => 'DESC',
+            );
+            
+            $query = new WP_Query($args);
+
+            if ($query->have_posts()) :
+                while ($query->have_posts()) : $query->the_post();
+                    // Output the post content or a custom HTML structure
+                    ?>
+                    <div class="event"  data-post-id="<?php the_ID(); ?>">
+						<?php the_post_thumbnail() ?>
+                        <h2><?php the_title(); ?></h2>
+                    </div>
+                    <?php
+                endwhile;
+                wp_reset_postdata();
+            else :
+                echo '<p>No posts found.</p>';
+            endif;
+        }
+    }
+
+    // Always call `wp_die()` after AJAX to properly end the request
+    wp_die();
+}
+
+// Hook the function to the AJAX action for both logged-in and non-logged-in users
+add_action('wp_ajax_filter_posts_by_category', 'filter_events_by_category');
+add_action('wp_ajax_nopriv_filter_posts_by_category', 'filter_events_by_category');
+
+function get_post_details() {
+    if (isset($_GET['post_id'])) {
+        $post_id = intval($_GET['post_id']);
+
+        // Get the post object
+        $post = get_post($post_id);
+
+        if ($post) {
+            // Get the post thumbnail
+            $thumbnail = get_the_post_thumbnail($post_id, 'medium');  // Adjust size as needed
+            $title = get_the_title($post_id);
+            $content = apply_filters('the_content', $post->post_content);  // Get post content with formatting
+
+            // Return the response in JSON format
+            wp_send_json_success(array(
+                'title' => $title,
+                'thumbnail' => $thumbnail,
+                'content' => $content
+            ));
+        } else {
+            wp_send_json_error(array('message' => 'Post not found.'));
+        }
+    }
+
+    wp_die();  // Always call wp_die() to properly end the AJAX request
+}
+
+// Hook for AJAX request to get post details
+add_action('wp_ajax_get_post_details', 'get_post_details');
+add_action('wp_ajax_nopriv_get_post_details', 'get_post_details');
