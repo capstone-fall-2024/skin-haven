@@ -1099,3 +1099,100 @@ body{
     transform: translateX(-50%);
 }
 
+/*--------------- EVENTS POPUP -------------- */
+/* Basic modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0; /* Position it to the right side of the screen */
+    bottom: 0;
+    width: 50%; /* Modal takes up 50% of the screen width */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: none;
+    z-index: 9999;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+}
+
+.modal-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%; /* Fill the right half of the screen */
+    height: 100%; /* Full height of the screen */
+    background-color: #fff;
+    padding: 20px;
+    overflow-y: auto; /* Enable scroll if content is taller than the screen */
+    border-left: 3px solid #ddd; /* Add a border on the left side of the modal */
+}
+
+.modal-header {
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #ddd;
+    text-align: center; /* Center the title */
+}
+
+.modal-body h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    left: 10px; /* Move the close button to the left */
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-modal:hover {
+    color: #f00;
+}
+
+/* Modal Body */
+.modal-body {
+    margin-top: 20px;
+}
+
+.modal-body img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* Optional: Add smooth fade-in/fade-out transition for the modal */
+.modal, .modal-container {
+    transition: opacity 0.3s ease;
+}
+
+.event {
+	cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .modal {
+        width: 100%;  /* Full width on smaller screens */
+    }
+    .modal-container {
+        width: 100%;
+        padding: 10px;
+    }
+    .modal-header h2 {
+        font-size: 20px;  /* Smaller font size on smaller screens */
+    }
+}
+
+
+
