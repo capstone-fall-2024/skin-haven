@@ -22,8 +22,10 @@ get_header();
 		<div class="off-road-safety">
 			<section class="guidelines">
 				<div class="container">
-					<div>
-						<h2>Guidelines</h2>
+				<div class="title-container">
+					<img src="<?php bloginfo('stylesheet_directory');?>/img/snowflake-short.png" class="snowflake snowflake-left" />
+					<h2 class="title-text">Guidelines</h2>
+				</div>
 						<ul>
 							<li>Avoiding alcohol or drugs before or during riding </li>
 							<li>Staying on trails and areas where riding is permitted. </li>
@@ -39,8 +41,8 @@ get_header();
 							<li>Informing someone where you are going and when you plan to return. </li>
 							<li>Carrying emergency supplies and learning survival skills. </li>
 						</ul>
+						<img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" />
 					</div>
-					<img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" />
  
 				</div>
 			</section>
@@ -69,8 +71,10 @@ get_header();
 			<section class="off-highway">
 				<div class="container">
 				<img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" />
-					<div>
-						<h2>Off-Highway vehicle by-law</h2>
+				<div class="title-container">
+					<img src="<?php bloginfo('stylesheet_directory');?>/img/snowflake-short.png" class="snowflake snowflake-left" />
+					<h2 class="title-text">Off-Highway Vehicle by-law</h2>
+				</div>
 						<p>A new OHV bylaw came into effect in Alberta Beach on January 13, 2004 which allows the use of off-highway vehicles within the Village limits of Alberta Beach on certain locations. </p>
 						<p>Off-highway vehicles are not permitted to travel on 47th Street or on 50th Avenue except to cross them. If a Resident of the Village, you may utilize other streets, avenues and alleys, but must choose the most direct route to make their way to permitted areas outside the Village limits. Off-highway vehicles are not permitted in the parks or school grounds. All riders of off-highway vehicles must wear a helmet, and there cannot be more riders on the vehicle than permitted by the manufacturer. The speed limit for off-highway vehicles in the village is 10 km/hr and they are not to be operated between the hours of 11 pm and 8 am. </p>
 						<p>
@@ -78,7 +82,7 @@ get_header();
 						</p>
 						<p>Any person found contravening any section of the by-law could face a fine and seizure of the off-highway vehicle.</p>
 					</div>
-				</div>
+			
 				<img src="" alt="">
 			</section>
 		</div>
