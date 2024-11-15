@@ -94,9 +94,20 @@ main {
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 h1 {
-	font-size: 2em;
+	font-size: 2rem;
 	margin: 0.67em 0;
 }
+
+h1, 
+h2, 
+h3,
+h4 {
+	font-family: "Quicksand", sans-serif;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
 
 /* Grouping content
 	 ========================================================================== */
@@ -473,8 +484,10 @@ big {
 /* Elements
 --------------------------------------------- */
 body {
-	background: #fff;
-	/* background-color: #ffafcc; */
+	font-size: 16px;
+	font-family: "Raleway", sans-serif;
+	background-color: #F7F5EB;
+	line-height: 1.6;
 }
 
 hr {
@@ -486,7 +499,7 @@ hr {
 
 ul,
 ol {
-	margin: 0 0 1.5em 3em;
+	/* margin: 0 0 1.5em 3em; */
 }
 
 ul {
@@ -500,7 +513,7 @@ ol {
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: 1.5em;
+	/* margin-left: 1.5em; */
 }
 
 dt {
@@ -649,10 +662,10 @@ textarea {
 
 /* Navigation
 --------------------------------------------- */
-.main-navigation {
+/* .main-navigation {
 	display: block;
 	width: 100%;
-}
+} */
 
 .main-navigation ul {
 	display: none;
@@ -749,10 +762,10 @@ textarea {
 	display: block;
 }
 
-.post,
+/* .post,
 .page {
 	margin: 0 0 1.5em;
-}
+} */
 
 .updated:not(.published) {
 	display: none;
@@ -970,16 +983,116 @@ textarea {
 	margin-bottom: 1.5em;
 }
 
-/* about us */
 
 .container {
     max-width: 60rem;
     margin: 0 auto;
+	padding: 0 1.5rem;
 }
 
-body{
-	line-height: 1.6;
+/* header */
+
+.menu-toggle {
+    background: none; 
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.menu-toggle svg {
+    width: 2rem;
+    height: 2rem; 
+	fill: #0073aa; 
+}
+
+.menu-toggle:hover svg {
+    fill: #0073aa; 
+}
+
+.header-container {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 0 20px;
+  
+}
+
+.site-logo {
+    max-width: 150px; 
+    height: auto;
+}
+
+.main-navigation {
+    display: flex;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    gap: 1rem; 
+    list-style: none; 
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+}
+
+/* footer */
+.site-footer {
+	background-color: #263042;
+	color: white;
+	text-align: center;
+	padding: 2rem 0;
+}
+
+.site-footer h4 {
+	font-size: 1.3rem;
+	margin: 1rem 0 .3rem;
+}
+
+.site-footer ul {
+	list-style-type: none;
+	padding: 0; 
+    margin: 0; 
+}
+
+.site-footer img {
+	max-width: 10rem;
+}
+
+.site-footer .social {
+    display: flex;
+    justify-content: center; 
+    gap: 1rem; 
+	padding: 2rem 0 1.5rem;
+}
+
+.site-footer svg {
+    fill: white;
+    max-width: 1.5rem;
+}
+
+.site-footer svg {
+    fill: white;
+    max-width: 1.5rem;
+}
+
+.site-footer a {
+	text-decoration: none;
+	color: white;
+}
+
+
+
+/* about us */
 
 .title {
     display: flex; 
@@ -999,23 +1112,42 @@ body{
 .snomo {
     background-color: #f7f5eb; 
     padding: 1.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 .lions-club {
     background-color: #ffffff; 
-    padding: 1.5rem;
-    margin-bottom: 3rem;
+	padding: 8rem 0 3rem;
+}
+/* Container for the backgrounds and image */
+
+.background-container {
+    position: relative;
+    text-align: center;
+    padding: 20px 0;
+	margin: 2rem 0;
+}
+
+/* Style for the floating image */
+.floating-image {
+    display: block;
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 100%; 
+    max-width: 90%;
+	object-fit: cover; 
+    height: 200px;
+    border-radius: 110px; 
+	margin-top: 3rem;
 }
 
 
 /* OFF ROAD SAFETY */
 
-.off-road-safety h2 {
-	text-transform: uppercase;
-}
-
-.off-road-safety img {
+.off-road-safety img,
+.off-highway img {
 	margin-top: 1rem;
 	border-radius: 13px;
 }
@@ -1028,7 +1160,7 @@ body{
 
 .guidelines ul {
 	list-style-type: disc; 
-	margin-left: 2rem;
+	/* margin-left: 1rem; */
 }
 
 .code-of-ethics h2 {
@@ -1038,23 +1170,31 @@ body{
 .code-of-ethics {
 	padding: 2rem 0;
 }
-/* Main container for the title and snowflakes */
+
+.off-highway .title-text {
+	width: 80%;
+	margin: 0 auto;
+	padding: 1rem 0 0;
+}
+
 .title-container {
     position: relative;
     text-align: center;
-    padding: 20px 0;
-    max-width: 600px; /* Adjust as needed */
+	padding-bottom: 2rem;
+    max-width: 600px; 
     margin: 0 auto;
-   
 }
 
-/* Style for the title text */
+.off-highway .title-container {
+	padding-bottom: 1.5rem;
+}
+
+
 .title-text {
     margin: 0;
     padding: 10px 0;
 }
 
-/* Style for snowflake images */
 .snowflake {
     position: absolute;
     width: 120px;
@@ -1063,38 +1203,45 @@ body{
 
 /* Left snowflake */
 .snowflake-left {
-    top: 0px; /* Position slightly above the container */
-    left: 0%; /* Position relative to container width */
+    top: 0px;
+    left: -10%;
     transform: translateY(-50%);
+}
+
+.code-of-ethics .snowflake-left,
+.code-of-ethics .snowflake-right  {
+	top: 20px;
+}
+
+.off-highway .snowflake-left {
+	top: 26px;
 }
 
 /* Right snowflake */
 .snowflake-right {
-    top: 0px; /* Position slightly above the container */
-    right: 0%; /* Position relative to container width */
+    top: 0px; 
+    right: -10%;
     transform: translateY(-50%);
 }
 
-/* Hanging line effect for left snowflake */
 .snowflake-left::after {
     content: '';
     position: absolute;
-    top: 100%; /* Position directly below the snowflake */
+    top: 100%; 
     left: 50%;
     width: 2px;
-    height: 20px; /* Adjust the height to control line length */
+    height: 20px; 
     background-color: #cccccc;
     transform: translateX(-50%);
 }
 
-/* Hanging line effect for right snowflake */
 .snowflake-right::after {
     content: '';
     position: absolute;
-    top: 100%; /* Position directly below the snowflake */
+    top: 100%;
     left: 50%;
     width: 2px;
-    height: 20px; /* Adjust the height to control line length */
+    height: 20px; 
     background-color: #cccccc;
     transform: translateX(-50%);
 }

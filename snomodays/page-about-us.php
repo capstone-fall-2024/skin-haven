@@ -20,8 +20,7 @@ get_header();
 <p>Celebrating winter fun and community spirit, SnoMo Days is proudly hosted by the Alberta Beach & District Lions Club—a dedicated nonprofit serving our community through charity and service</p>
 </Section>
 </header><!-- #masthead -->
-	<main id="primary" class="site-main container">
-		
+	<main id="primary" class="site-main">
 		<!-- about snomo -->
 		<section class="snomo">
 			<div class="title">
@@ -35,19 +34,25 @@ get_header();
 			</p>
 		</section>
 
-		<img src="" alt="">
+		<div class="background-container">
+		
+		<img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" class="floating-image" alt="Snow Cabin" />
+
+		</div>
 		
 		<!-- about lions club -->
 		<section class="lions-club">
-			<div class="title">
-				<h2>ABOUT LIONS CLUB</h2>
-				<div class="line"></div>
+			<div class="container">
+				<div class="title">
+					<h2>ABOUT LIONS CLUB</h2>
+					<div class="line"></div>
+				</div>
+				<p>The Alberta Beach & District Lions Club, a nonprofit organization, is dedicated to serving the community through various charitable initiatives and events, including the beloved SnoMo Days festival. As part of the Lions of Alberta Foundation, we unite with Lions Clubs across Alberta to make a greater impact. Where individual clubs may lack resources for a project, the Foundation enables collaboration, turning ambitious community projects into realities. Through the Foundation, we also provide tax-deductible receipts to help raise funds for Canadian community initiatives, supporting our mission to create positive change across the province.</p>
+				<p>To read more about Lions Club, visit our page!</p>
+				<button>
+					Lions Club
+				</button>
 			</div>
-			<p>The Alberta Beach & District Lions Club, a nonprofit organization, is dedicated to serving the community through various charitable initiatives and events, including the beloved SnoMo Days festival. As part of the Lions of Alberta Foundation, we unite with Lions Clubs across Alberta to make a greater impact. Where individual clubs may lack resources for a project, the Foundation enables collaboration, turning ambitious community projects into realities. Through the Foundation, we also provide tax-deductible receipts to help raise funds for Canadian community initiatives, supporting our mission to create positive change across the province.</p>
-			<p>To read more about Lions Club, visit our page!</p>
-			<button>
-				Lions Club
-			</button>
 		</section>
     
 	</main><!-- #main -->
