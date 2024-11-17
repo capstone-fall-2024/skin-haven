@@ -14,18 +14,43 @@
 
 get_header();
 ?>
-    <Section>
-<h1>Gallery</h1>
-<p>Relive the excitement of SnoMo Days through our photo gallery! Browse memorable moments from past events, featuring thrilling activities, happy families, and our vibrant community coming together to celebrate winter fun.</p>
+<Section>
+    <h1>Results</h1>
+    <p>Discover this year’s raffle and 50/50 winners, along with highlights from SnoMo Days events.
+
+        Thank you to everyone for your participation and support!</p>
 </Section>
 </header><!-- #masthead -->
-	<main id="primary" class="site-main">
-        <Section class="results">
-            <div class='grid'>
-
-            </div>
-        </Section>
-	</main><!-- #main -->
+<main id="primary" class="site-main">
+    <div class="container results">
+        <div>
+            <img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" alt="Snow Cabin" />
+            <h2>50/50 Winner</h2>
+            <p>$4808.00</p>
+            <p>Mohamad Khalid</p>
+        </div>
+        <div>
+            <img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" alt="Snow Cabin" />
+            <h2>Snowmobile Drag Races</h2>
+            <p>Winner Name</p>
+        </div>
+        <div>
+            <img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" alt="Snow Cabin" />
+            <h2>Snowmobile Poker Rally</h2>
+            <p>Winner Name</p>
+        </div>
+        <div>
+            <img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" alt="Snow Cabin" />
+            <h2>Over the Line Snowball Tournament</h2>
+            <p>Winner Name</p>
+        </div>
+        <div>
+            <img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" alt="Snow Cabin" />
+            <h2>Broom Ball Tournament</h2>
+            <p>Winner Name</p>
+        </div>
+    </div>
+</main><!-- #main -->
 
 <?php
 
