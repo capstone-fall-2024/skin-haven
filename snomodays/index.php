@@ -34,10 +34,48 @@ get_header();
 		<!-- Featured events section !-->
 		<section class="featured">
 			<h2>Featured</h2>
-			<!-- query loop for featured events goes here !-->
+			<div id='featuredEvents'>
+			<?php
+        // Query for events in the "featured" category
+        $args = array(
+            'post_type' => 'post',         // Custom post type for events
+            'posts_per_page' => 3,          // Limit to 3 events
+            'category_name' => 'featured',  // Category slug for featured events
+            'orderby' => 'date',            // Order by date (most recent first)
+            'order' => 'DESC'               // Order in descending order (newest first)
+        );
+
+        $featured_events_query = new WP_Query($args);
+
+        // Check if there are any featured events
+        if ($featured_events_query->have_posts()) :
+            // Loop through the events and display them
+            while ($featured_events_query->have_posts()) : $featured_events_query->the_post();
+                ?>
+                <div class="event" data-post-id="<?php the_ID(); ?>">
+                    <h3><?php the_title(); ?></h3>
+                    <p><?php the_excerpt(); ?></p>
+                    <a href="<?php the_permalink(); ?>">Learn More</a>
+                </div>
+                <?php
+            endwhile;
+            wp_reset_postdata(); // Reset the post data after the loop
+        else :
+            echo '<p>No featured events found.</p>';
+        endif;
+        ?>
+			</div>
 			<button>
 				view all events
 			</button>
+
+			<!-- Modal Structure -->
+			<div id="modal" class="modal" style="display:none;">
+            <div class="modal-overlay"></div>
+            <div class="modal-container">
+        <!-- Modal Content will be inserted here dynamically -->
+            </div>
+        </div>
 		</section>
 		<!-- About us section !-->
 		<section>
