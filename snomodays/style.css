@@ -69,6 +69,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
+	overflow-x: hidden;
 }
 
 
@@ -80,6 +81,7 @@ html {
  */
 body {
 	margin: 0;
+	padding: 0;
 }
 
 /**
@@ -503,7 +505,7 @@ ol {
 }
 
 ul {
-	list-style: disc;
+	list-style: none;
 }
 
 ol {
@@ -712,7 +714,7 @@ textarea {
 	text-decoration: none;
 }
 
-/* Small menu. */
+
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
@@ -987,62 +989,235 @@ textarea {
 .container {
     max-width: 60rem;
     margin: 0 auto;
-	padding: 0 1.5rem;
+	padding: 0 1rem;
 }
+
+/* grid system  remove after*/
+/* Left Margin */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 16px; 
+    height: 100%; 
+    background-color: rgba(0, 255, 51, 0.1); 
+    z-index: 9999; 
+    pointer-events: none;
+}
+
+/* Right Margin */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 16px; 
+    height: 100%; 
+    background-color: rgba(0, 255, 51, 0.1); 
+    z-index: 9999; 
+    pointer-events: none; 
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 50%; /* Center the grid */
+    transform: translateX(-50%); /* Adjust for center alignment */
+    width: calc(100% - 32px); /* Total width minus left and right margins */
+    height: 100%; /* Full height of the viewport */
+    pointer-events: none; /* Ensure it doesn’t interfere with interactions */
+    z-index: 9999;
+    background: repeating-linear-gradient(
+        to right,
+        transparent,
+        transparent calc((100% - (3 * 24px)) / 4), /* First grid column */
+        rgba(255, 0, 0, 0.1) calc((100% - (3 * 24px)) / 4), /* Grid line */
+        rgba(255, 0, 0, 0.1) calc(((100% - (3 * 24px)) / 4) + 24px) /* Grid + gutter */
+    );
+}
+
+
+
 
 /* header */
 
-.menu-toggle {
-    background: none; 
-    border: none;
-    padding: 0.5rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+header {
+    padding: 1rem;
+    position: relative;
 }
 
-.menu-toggle svg {
+.site-header {
+	background-image: url(img/banner-mobile.jpg);
+	background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center; 
+    width: 100%; 
+	color: white;
+}
+
+.banner button {
+	background-color: #2C95C3;
+	color: white;
+	padding: 0.75rem 1.5rem;
+	font-size: 1rem;
+	border-radius: 8px;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+button {
+    border: 0;
+    background-color: transparent;
+    padding: 0.625rem;
+	text-transform: uppercase;
+}
+
+.logo {
+    padding: 0.625rem;
+}
+
+header img {
+    width: 6rem;
+}
+
+header svg {
     width: 2rem;
-    height: 2rem; 
-	fill: #0073aa; 
-}
-
-.menu-toggle:hover svg {
-    fill: #0073aa; 
-}
-
-.header-container {
-    display: flex;
-    align-items: center; 
-    justify-content: space-between; 
-    padding: 0 20px;
-  
-}
-
-.site-logo {
-    max-width: 150px; 
     height: auto;
 }
 
-.main-navigation {
+button {
+    border: 0;
+    background-color: transparent;
+    padding: 0.625rem;
+	border-radius: 8px;
+}
+
+header .container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
-.menu {
-    display: flex;
-    gap: 1rem; 
-    list-style: none; 
-    margin: 0;
-    padding: 0;
+nav {
+    position: absolute;
+    top: 0;
+    right: -100%; 
+    width: 100%;
+    background-color: #F7F5EB;
+    height: 100vh;
+    transition: right 0.6s ease-in-out; 
+    z-index: 9999; 
+	text-transform: uppercase;
 }
 
-.menu li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1rem;
-    padding: 0.5rem 0;
+nav ul div {
+    border-bottom: 1px solid #111; 
+	padding: .3rem 0;
+}
+
+nav ul div li {
+	padding-left: 1rem;
+}
+
+.nav-group li:not(:first-of-type) {
+    padding-left: 1rem; 
+}
+
+.show {
+    right: 0; 
+}
+
+header ul {
+    display: flex;
+    flex-direction: column;
+	padding: 0;
+    /* text-align: center; */
+    /* padding-top: 2rem; */
+}
+
+nav a {
+    display: block;
+    padding: 0.5rem 0;;
+    color: black;
+	text-decoration: none;
+}
+
+nav a:hover {
+    color: #2C95C3;
+} 
+
+nav a:visited {
+	color: black;
+}
+
+.active-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+	padding: 1rem 2.5rem;
+    position: relative;
+}
+
+.logo {
+    max-width: 6rem;
+    height: auto;
+}
+
+.active-tog-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative; 
+    right: 0; 
+    margin-left: auto; 
+    padding: 0.5rem;
+}
+
+.active-tog-btn svg {
+    width: 2rem; 
+    height: 2rem;
+}
+
+
+@media screen and (min-width: 800px) {
+    .container {
+        max-width: 60rem;
+        margin: 0 auto;
+    }
+    
+    svg,
+    button {
+        display: none;
+    }
+
+    nav {
+        background-color: transparent;
+        position: static;
+        height: auto;
+        width: unset;
+    }
+    
+    header ul {
+        flex-direction: row;
+        padding: 0;
+        gap: .7rem;
+    }
+
+    nav a {
+        color: #3E3232;
+        white-space: nowrap;
+        padding: .5rem .4rem;
+    }
+
+    nav a:hover {
+        color: #F5EBEB;
+        background-color: #867070;
+        border-radius: 5px;
+    }
 }
 
 /* footer */
@@ -1090,8 +1265,6 @@ textarea {
 	color: white;
 }
 
-
-
 /* about us */
 
 .title {
@@ -1119,7 +1292,6 @@ textarea {
     background-color: #ffffff; 
 	padding: 8rem 0 3rem;
 }
-/* Container for the backgrounds and image */
 
 .background-container {
     position: relative;
@@ -1246,6 +1418,22 @@ textarea {
     transform: translateX(-50%);
 }
 
+
+/* RESULTS PAGE */
+
+.results {
+	background-color: white;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+.results img {
+	border-radius: 13px;
+	height: 200px;
+	width: 100%;
+	object-fit: cover;
+}
+
 /*--------------- EVENTS POPUP -------------- */
 /* Basic modal styles */
 .modal {
@@ -1324,9 +1512,148 @@ textarea {
     transition: opacity 0.3s ease;
 }
 
+
+/* home page */
+.featured {
+    text-align: center; 
+    padding: 2rem 0; 
+	z-index: 99;
+}
+
+.featured h2 {
+    font-size: 2rem;
+    font-weight: bold;
+ 	margin: 2rem 0 3rem;
+    display: inline-block; 
+    padding: 0 2rem; 
+    z-index: -9; 
+	position: relative; 
+}
+
+.featured .snowflake-left,
+.featured .snowflake-right {
+    position: absolute;
+    top: 93.5%; 
+    transform: translateY(-50%);
+    width: 9rem;
+    height: auto;
+}
+
+.featured .snowflake-left {
+	left: -1rem;
+}
+
+.featured .snowflake-right {
+	right: -1rem;
+}
+
 .event {
 	cursor: pointer;
+	background-color: white;
+	border-radius: 13px;
+	padding: 1rem;
+	text-align: left;
+	margin-bottom: 1rem;
 }
+
+.event a {
+	text-transform: uppercase;
+}
+
+.featured button {
+	background-color: #B34242;
+	color: white;
+	padding: .8rem;
+	margin: 3rem 0 2rem;
+}
+
+/* about us home page */
+
+.about-us .snomodays,
+.about-us .lionsclub {
+    background-image: url('img/snowcabin.jpg'); 
+	background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center; 
+    color: white; 
+    width: 100%; 
+    height: 80vh;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+	border-radius: 13px;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+	width: 100%; 
+    height: 100%; 
+    display: flex; 
+	flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    color: white; 
+	border-radius: 13px;
+	padding: 1rem;
+}
+
+.about-us div {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.overlay h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.overlay p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.overlay button {
+    /* background-color: #B34242; */
+    color: white;
+    border: #2C95C3 1px solid;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.overlay button:hover {
+	background-color: #2C95C3;
+
+}
+
+/* sponsors */
+
+.sponsors h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.sponsors div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 2rem; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.sponsors img {
+    max-width: 100%; /* Ensure images fit within their grid space */
+    height: auto; /* Maintain the aspect ratio */
+    display: block; 
+    padding: 0.5rem; 
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+
 
 @media (max-width: 768px) {
     .modal {
