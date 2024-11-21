@@ -50,7 +50,7 @@ get_header();
 				<p>The Alberta Beach & District Lions Club, a nonprofit organization, is dedicated to serving the community through various charitable initiatives and events, including the beloved SnoMo Days festival. As part of the Lions of Alberta Foundation, we unite with Lions Clubs across Alberta to make a greater impact. Where individual clubs may lack resources for a project, the Foundation enables collaboration, turning ambitious community projects into realities. Through the Foundation, we also provide tax-deductible receipts to help raise funds for Canadian community initiatives, supporting our mission to create positive change across the province.</p>
 				<p>To read more about Lions Club, visit our page!</p>
 				<button>
-					Lions Club
+					<a href="#">Lions Club</a>
 				</button>
 			</div>
 		</section>

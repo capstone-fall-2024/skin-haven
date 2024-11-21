@@ -108,3 +108,16 @@ btn.addEventListener('click', function () {
     let menu = this.nextElementSibling;
     MediaDeviceInfo.hidden = !menu.hidden;
 });
+
+
+const toggleBtn = document.querySelector('.active-tog-btn');
+const menu = document.querySelector('#menu');
+
+toggleBtn.addEventListener('click', function () {
+    menu.classList.toggle('show'); // Toggle the 'show' class for the menu
+    document.body.classList.toggle('menu-active'); // Prevent scrolling when menu is active
+
+    // Accessibility: Update aria-expanded
+    const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+    toggleBtn.setAttribute('aria-expanded', !expanded);
+});
