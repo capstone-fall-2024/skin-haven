@@ -63,7 +63,7 @@ $the_query = new WP_Query( $args );
 <?php if( $the_query->have_posts() ): ?>
     <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
         <div>
-			<h2><?php echo esc_html( get_field( 'event_name' ) ); ?></h2>
+			<h2><?php echo esc_html( get_field( 'title' ) ); ?></h2>
 		</div>
 
     <?php endwhile; ?>
