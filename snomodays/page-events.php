@@ -24,28 +24,53 @@ get_header();
 	<main id="primary" class="site-main">
     
         <section class='events'>
-        <div class="category-buttons">
-                <button class="category-filter" data-category="saturday">Sat</button>
-                <button class="category-filter" data-category="sunday">Sun</button>
-                <button class="category-filter" data-category="monday">Mon</button>
-            </div>
-            <div id="posts-container">
-                <!-- Posts will be loaded here via AJAX -->
-                 
-            </div>
+        <div class="event-filters">
+            <button class="filter-button" data-day="saturday">Saturday</button>
+            <button class="filter-button" data-day="sunday">Sunday</button>
+            <button class="filter-button" data-day="monday">Monday</button>
+        </div>
 
-<!-- Modal Structure -->
-<div id="modal" class="modal" style="display:none;">
-    <div class="modal-overlay"></div>
-    <div class="modal-container">
+        <div id="event-list">
+          <!-- Events will be loaded here via AJAX -->
+            
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="modal" class="modal" style="display:none;">
+            <div class="modal-overlay"></div>
+            <div class="modal-container">
         <!-- Modal Content will be inserted here dynamically -->
-    </div>
-</div>
+            </div>
+        </div>
 
             <section class='cancelled'>
                 <h3>CANCELLED EVENTS</h3>
-                <!-- query loop for cancelled events -->
-                 </div>
+                <div id="cancelledEvents">
+                <?php 
+
+// args
+$args = array(
+    'posts_per_page'    => -1,
+    'post_type'     => 'event',
+    'meta_key'      => 'cancelled',
+    'meta_value'    => 1
+);
+
+
+// query
+$the_query = new WP_Query( $args );
+?>
+<?php if( $the_query->have_posts() ): ?>
+    <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+        <div>
+			<h2><?php echo esc_html( get_field( 'event_name' ) ); ?></h2>
+		</div>
+
+    <?php endwhile; ?>
+<?php endif; ?>
+
+<?php wp_reset_query();   // Restore global post data stomped by the_post(). ?>
+                </div>
             </section>
         </section>
 	</main><!-- #main -->

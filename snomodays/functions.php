@@ -176,92 +176,91 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-function enqueue_ajax_filter_scripts() {
-    // Enqueue the jQuery library (if it's not already included)
-    wp_enqueue_script('jquery');
+
+ // Enqueue the AJAX script
+ function enqueue_filter_events_script() {
+    // Enqueue the custom script
+    wp_enqueue_script('filter-events', get_template_directory_uri() . '/js/filter-events.js', array('jquery'), null, true);
     
-    // Enqueue custom JS file for the AJAX functionality
-    wp_enqueue_script('filter-events-js', get_template_directory_uri() . '/js/filter-events.js', array('jquery'), null, true);
-    
-    // Localize the script to pass the ajaxurl variable to the script
-    wp_localize_script('filter-events-js', 'ajaxurl', admin_url('admin-ajax.php'));
+    // Pass the AJAX URL to the script
+    wp_localize_script('filter-events', 'ajaxurl', admin_url('admin-ajax.php'));
 }
-add_action('wp_enqueue_scripts', 'enqueue_ajax_filter_scripts');
+add_action('wp_enqueue_scripts', 'enqueue_filter_events_script');
 
+// AJAX function to filter events based on the selected day
+function filter_events_by_day() {
+	if (isset($_GET['day'])) {
+$day = sanitize_text_field($_GET['day']);
 
+// Query the events filtered by the taxonomy term
+$args = array(
+	'post_type' => 'event',
+	'posts_per_page' => -1, // Get all posts
+	'tax_query' => array(
+		array(
+			'taxonomy' => 'event_day',
+			'field' => 'slug',
+			'terms' => $day,
+			'operator' => 'IN',
+		),
+	),
+);
 
-function filter_events_by_category() {
-    // Check if a category is passed
-    if ( isset($_GET['category']) ) {
-        $category = sanitize_text_field($_GET['category']);
+// The Query
+$query = new WP_Query($args);
 
-        // Define the category slugs (you could customize this based on your actual categories)
-        $category_map = array(
-            'saturday' => 'saturday', 
-            'sunday' => 'sunday',    
-            'monday' => 'monday'      
-        );
+if ($query->have_posts()) :
+	while ($query->have_posts()) : $query->the_post();
+		// Get custom fields
+		$event_field = get_field('event_name');
+		$event_image = get_field('event_image');
+		?>
+		<div class="event"  data-post-id="<?php the_ID(); ?>">
+			<h2><?php echo esc_html($event_field); ?></h2>
+			<?php if ($event_image) : ?>
+				<img src="<?php echo esc_url($event_image['url']); ?>" alt="<?php echo esc_attr($event_image['alt']); ?>">
+			<?php endif; ?>
+		</div>
+		<?php
+	endwhile;
+else :
+	echo 'No events found for this day.';
+endif;
 
-        // Check if the category exists in the map
-        if (array_key_exists($category, $category_map)) {
-            // Get the category ID from the slug
-            $category_slug = $category_map[$category];
-            $category_id = get_term_by('slug', $category_slug, 'category')->term_id;
-            
-            // WP Query to fetch posts by category
-            $args = array(
-                'post_type' => 'post',  // You can change this to a custom post type if needed
-                'posts_per_page' => 5,  // Adjust number of posts to display
-                'category__in' => array($category_id),
-                'orderby' => 'date',
-                'order' => 'DESC',
-            );
-            
-            $query = new WP_Query($args);
-
-            if ($query->have_posts()) :
-                while ($query->have_posts()) : $query->the_post();
-                    // Output the post content or a custom HTML structure
-                    ?>
-                    <div class="event"  data-post-id="<?php the_ID(); ?>">
-						<?php the_post_thumbnail() ?>
-                        <h2><?php the_title(); ?></h2>
-                    </div>
-                    <?php
-                endwhile;
-                wp_reset_postdata();
-            else :
-                echo '<p>No posts found.</p>';
-            endif;
-        }
-    }
-
-    // Always call `wp_die()` after AJAX to properly end the request
-    wp_die();
+wp_reset_postdata();
 }
 
-// Hook the function to the AJAX action for both logged-in and non-logged-in users
-add_action('wp_ajax_filter_posts_by_category', 'filter_events_by_category');
-add_action('wp_ajax_nopriv_filter_posts_by_category', 'filter_events_by_category');
+die(); // Always die in the end of an AJAX function
+}
+add_action('wp_ajax_filter_events', 'filter_events_by_day'); // For logged-in users
+add_action('wp_ajax_nopriv_filter_events', 'filter_events_by_day'); // For non-logged-in users
+
+
+
 
 function get_post_details() {
     if (isset($_GET['post_id'])) {
-        $post_id = intval($_GET['post_id']);
+        $post_id = intval($_GET['post_id']); // Ensure the post ID is an integer
 
         // Get the post object
         $post = get_post($post_id);
 
         if ($post) {
-            // Get the post thumbnail
-            $thumbnail = get_the_post_thumbnail($post_id, 'medium');  // Adjust size as needed
-            $title = get_the_title($post_id);
-            $content = apply_filters('the_content', $post->post_content);  // Get post content with formatting
+            // Get the custom fields
+            $event_field = get_field('event_name', $post_id);  // Custom field 'event'
+            $event_image = get_field('event_image', $post_id);  // Custom field 'event_image'
+
+            // Prepare event image HTML if exists
+            if ($event_image) {
+                $event_image_html = '<img src="' . esc_url($event_image['url']) . '" alt="' . esc_attr($event_image['alt']) . '" />';
+            } else {
+                $event_image_html = ''; // If no event image, leave empty
+            }
 
             // Return the response in JSON format
             wp_send_json_success(array(
-                'title' => $title,
-                'thumbnail' => $thumbnail,
-                'content' => $content
+                'event_field' => $event_field,  // Return the event custom field
+                'event_image' => $event_image_html,  // Return the event image HTML
             ));
         } else {
             wp_send_json_error(array('message' => 'Post not found.'));
@@ -274,3 +273,6 @@ function get_post_details() {
 // Hook for AJAX request to get post details
 add_action('wp_ajax_get_post_details', 'get_post_details');
 add_action('wp_ajax_nopriv_get_post_details', 'get_post_details');
+
+
+
