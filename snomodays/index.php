@@ -61,7 +61,7 @@ $the_query = new WP_Query( $args );
     <?php while( $the_query->have_posts() ) : $the_query->the_post();  $image = get_field('event_image'); ?>
         <div class='event' data-post-id="<?php the_ID(); ?>">
 		<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-		<h3><?php echo esc_html( get_field( 'title' ) ); ?></h3>
+		<h3><?php echo get_the_title( $post_id ); ?></h3>
 		</div>
     <?php endwhile; ?>
 <?php endif; ?>

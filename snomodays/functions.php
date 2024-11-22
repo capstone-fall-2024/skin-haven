@@ -212,11 +212,11 @@ $query = new WP_Query($args);
 if ($query->have_posts()) :
 	while ($query->have_posts()) : $query->the_post();
 		// Get custom fields
-		$event_field = get_field('title');
+		$event_field = $post_title;
 		$event_image = get_field('event_image');
 		?>
 		<div class="event"  data-post-id="<?php the_ID(); ?>">
-			<h2><?php echo esc_html($event_field); ?></h2>
+			<h2><?php echo get_the_title( $post_id ); ?></h2>
 			<?php if ($event_image) : ?>
 				<img src="<?php echo esc_url($event_image['url']); ?>" alt="<?php echo esc_attr($event_image['alt']); ?>">
 			<?php endif; ?>
@@ -247,7 +247,7 @@ function get_post_details() {
 
         if ($post) {
             // Get the custom fields
-            $event_field = get_field('title', $post_id);  // Custom field 'event'
+            $event_field =  get_the_title( $post_id ); // Custom field 'event'
             $event_image = get_field('event_image', $post_id);  // Custom field 'event_image'
 			$event_duration= get_field('event_duration', $post_id);
 			$event_location= get_field('location', $post_id);
