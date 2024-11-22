@@ -227,7 +227,7 @@ else :
 	echo 'No events found for this day.';
 endif;
 
-wp_reset_postdata();
+wp_reset_query();
 }
 
 die(); // Always die in the end of an AJAX function
@@ -249,6 +249,9 @@ function get_post_details() {
             // Get the custom fields
             $event_field = get_field('title', $post_id);  // Custom field 'event'
             $event_image = get_field('event_image', $post_id);  // Custom field 'event_image'
+			$event_duration= get_field('event_duration', $post_id);
+			$event_location= get_field('location', $post_id);
+			$description= get_field('description', $post_id);
 
             // Prepare event image HTML if exists
             if ($event_image) {
@@ -261,6 +264,9 @@ function get_post_details() {
             wp_send_json_success(array(
                 'event_field' => $event_field,  // Return the event custom field
                 'event_image' => $event_image_html,  // Return the event image HTML
+				'event_duration' => $event_duration,
+				'event_location' => $event_location,
+				'description' => $description,
             ));
         } else {
             wp_send_json_error(array('message' => 'Post not found.'));
@@ -273,6 +279,8 @@ function get_post_details() {
 // Hook for AJAX request to get post details
 add_action('wp_ajax_get_post_details', 'get_post_details');
 add_action('wp_ajax_nopriv_get_post_details', 'get_post_details');
+
+
 
 
 
