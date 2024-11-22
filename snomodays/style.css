@@ -1189,10 +1189,17 @@ nav a:visited {
         margin: 0 auto;
     }
     
-    svg,
-    button {
+    .active-tog-btn {
         display: none;
     }
+
+	.tog-btn {
+		display: none;
+	}
+
+	nav img{
+		display: none;
+	}
 
     nav {
         background-color: transparent;
@@ -1435,13 +1442,23 @@ nav a:visited {
 }
 
 /*--------------- EVENTS POPUP -------------- */
+
+.filter-button{
+	    color: white;
+    border: #2C95C3 1px solid;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
 /* Basic modal styles */
 .modal {
     position: fixed;
     top: 0;
     right: 0; /* Position it to the right side of the screen */
     bottom: 0;
-    width: 50%; /* Modal takes up 50% of the screen width */
+    width: 30%; /* Modal takes up 50% of the screen width */
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
     display: none;
     z-index: 9999;
@@ -1449,11 +1466,13 @@ nav a:visited {
 }
 
 .modal-overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+	width: 100%;
+	height: 100vh;
     background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
 }
 
@@ -1556,7 +1575,7 @@ nav a:visited {
 	margin-bottom: 1rem;
 }
 
-.event a {
+.event h3 {
 	text-transform: uppercase;
 }
 

@@ -43,40 +43,30 @@ get_header();
 			<img src="<?php bloginfo('stylesheet_directory');?>/img/homepage-snowflake-right.png"   alt="Snowflake Right"
             class="snowflake-right" />
 			<div id='featuredEvents'>
-				<?php
-        // Query for events in the "featured" category
-        $args = array(
-            'post_type' => 'post',         // Custom post type for events
-            'posts_per_page' => 3,          // Limit to 3 events
-            'category_name' => 'featured',  // Category slug for featured events
-            'orderby' => 'date',            // Order by date (most recent first)
-            'order' => 'DESC'               // Order in descending order (newest first)
-        );
+			<?php 
 
-        $featured_events_query = new WP_Query($args);
+// args
+$args = array(
+	'posts_per_page' => 3,
+    'post_type'     => 'event',
+    'meta_key'      => 'featured',
+    'meta_value'    => '1'
+);
 
-        // Check if there are any featured events
-        if ($featured_events_query->have_posts()) :
-            // Loop through the events and display them
-            while ($featured_events_query->have_posts()) : $featured_events_query->the_post();
-                ?>
-				
-				<div class="event" data-post-id="<?php the_ID(); ?>">
-					<h3>
-						<?php the_title(); ?>
-					</h3>
-					<p>
-						<?php the_excerpt(); ?>
-					</p>
-					<a href="<?php the_permalink(); ?>">Learn More</a>
-				</div>
-				<?php
-            endwhile;
-            wp_reset_postdata(); // Reset the post data after the loop
-        else :
-            echo '<p>No featured events found.</p>';
-        endif;
-        ?>
+
+// query
+$the_query = new WP_Query( $args );
+?>
+<?php if( $the_query->have_posts() ): ?>
+    <?php while( $the_query->have_posts() ) : $the_query->the_post();  $image = get_field('event_image'); ?>
+        <div class='event' data-post-id="<?php the_ID(); ?>">
+		<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+		<h3><?php echo esc_html( get_field( 'title' ) ); ?></h3>
+		</div>
+    <?php endwhile; ?>
+<?php endif; ?>
+
+<?php wp_reset_query();   // Restore global post data stomped by the_post(). ?>
 			</div>
 			<div class="button">
 				<button>
