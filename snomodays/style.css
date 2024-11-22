@@ -1552,7 +1552,7 @@ nav a:visited {
 .featured .snowflake-left,
 .featured .snowflake-right {
     position: absolute;
-    top: 93.5%; 
+    top: 86.5%; 
     transform: translateY(-50%);
     width: 9rem;
     height: auto;
