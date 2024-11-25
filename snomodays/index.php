@@ -28,6 +28,7 @@ get_header();
 	</button>
 </section>
 
+</div> <!--   header overlay-->
 
 </header><!-- #masthead -->
 
@@ -37,11 +38,11 @@ get_header();
 	<!-- Featured events section !-->
 	<div class="container">
 		<section class="featured">
-		<img src="<?php bloginfo('stylesheet_directory');?>/img/homepage-snowflake-left.png"  alt="Snowflake Left"
-            class="snowflake-left" />
-			<h2>Featured</h2>
-			<img src="<?php bloginfo('stylesheet_directory');?>/img/homepage-snowflake-right.png"   alt="Snowflake Right"
-            class="snowflake-right" />
+		<div class="title-container">
+            <img src="<?php bloginfo('stylesheet_directory'); ?>/img/homepage-snowflake-left.png" alt="Snowflake Left" class="snowflake snowflake-left" />
+            <h2 class="title-text">Featured</h2>
+            <img src="<?php bloginfo('stylesheet_directory'); ?>/img/homepage-snowflake-right.png" alt="Snowflake Right" class="snowflake snowflake-right" />
+        </div>
 			<div id='featuredEvents'>
 			<?php 
 
@@ -61,7 +62,7 @@ $the_query = new WP_Query( $args );
     <?php while( $the_query->have_posts() ) : $the_query->the_post();  $image = get_field('event_image'); ?>
         <div class='event' data-post-id="<?php the_ID(); ?>">
 		<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-		<h3><?php echo get_the_title( $post_id ); ?></h3>
+		<h3><?php echo esc_html( get_field( 'title' ) ); ?></h3>
 		</div>
     <?php endwhile; ?>
 <?php endif; ?>
@@ -95,7 +96,7 @@ $the_query = new WP_Query( $args );
 							sports and family orientated winter leisure activities.
 						</p>
 						<button>
-							READ MORE
+						<a href="<?php echo home_url( '/about-us/#about-snomo' ); ?>">READ MORE</a>
 						</button>
 					</div>
 				</Section>
@@ -121,18 +122,20 @@ $the_query = new WP_Query( $args );
 
 	<!-- Volunteer section !-->
 
-	<section class='volunteer'>
-		<div>
-			<h2>Be Part of the Magic: <br> Volunteer with us</h2>
-			<p>Help bring the excitement to life! Join our team and help make this winter festival unforgettable.</p>
-			<button> Sign up now</button>
+	<section class="volunteer">
+		<div class="container">
+			<div>
+				<h2>Be Part of the Magic: <br> Volunteer with us</h2>
+				<p>Help bring the excitement to life! Join our team and help make this winter festival unforgettable.</p>
+				<div class="button"><button> Sign up now</button></div>
+				<img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" alt="Snow Cabin" />
+			</div>
 		</div>
-		<img src="" alt="">
 	</section>
 
 	<!-- Sponsors section !-->
-	<section class="container">
-		<div class="sponsors">
+	<section class="sponsors">
+		<div class="container">
 			<h2>Sponsors</h2>
 			<div>
 				<img src="<?php bloginfo('stylesheet_directory');?>/img/tim-hay.png" alt="tim hay sponsor" />
