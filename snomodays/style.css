@@ -66,7 +66,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-html {
+ html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
 	overflow-x: hidden;
@@ -82,6 +82,7 @@ html {
 body {
 	margin: 0;
 	padding: 0;
+	overflow-x: hidden;
 }
 
 /**
@@ -550,12 +551,11 @@ table {
 /* Links
 --------------------------------------------- */
 a {
-	color: #4169e1;
+	color: white;
+	text-decoration: none;
 }
 
-a:visited {
-	color: #800080;
-}
+
 
 a:hover,
 a:focus,
@@ -580,7 +580,7 @@ input[type="reset"],
 input[type="submit"] {
 	border: 1px solid;
 	border-color: #ccc #ccc #bbb;
-	border-radius: 3px;
+	/* border-radius: 3px; */
 	background: #e6e6e6;
 	color: rgba(0, 0, 0, 0.8);
 	line-height: 1;
@@ -664,61 +664,7 @@ textarea {
 
 /* Navigation
 --------------------------------------------- */
-/* .main-navigation {
-	display: block;
-	width: 100%;
-} */
 
-.main-navigation ul {
-	display: none;
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
-}
-
-.main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
-	position: absolute;
-	top: 100%;
-	left: -999em;
-	z-index: 99999;
-}
-
-.main-navigation ul ul ul {
-	left: -999em;
-	top: 0;
-}
-
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
-	display: block;
-	left: auto;
-}
-
-.main-navigation ul ul a {
-	width: 200px;
-}
-
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-	left: auto;
-}
-
-.main-navigation li {
-	position: relative;
-}
-
-.main-navigation a {
-	display: block;
-	text-decoration: none;
-}
-
-
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
 
 @media screen and (min-width: 37.5em) {
 
@@ -1044,7 +990,7 @@ body::after {
 /* header */
 
 header {
-    padding: 1rem;
+    /* padding: 1rem; */
     position: relative;
 }
 
@@ -1055,7 +1001,19 @@ header {
     background-position: center; 
     width: 100%; 
 	color: white;
+	height: 35rem;
+	/* margin-bottom: 3rem; */
 }
+
+.header-overlay {
+	background-color: rgba(0, 0, 0, 0.1);
+	width: 100%; 
+	height: 100%;
+	z-index: 2; /* Ensure it's above the background */
+	padding: 1rem;
+
+}
+
 
 .banner button {
 	background-color: #2C95C3;
@@ -1089,13 +1047,6 @@ header svg {
     height: auto;
 }
 
-button {
-    border: 0;
-    background-color: transparent;
-    padding: 0.625rem;
-	border-radius: 8px;
-}
-
 header .container {
     display: flex;
     justify-content: space-between;
@@ -1119,12 +1070,8 @@ nav ul div {
 	padding: .3rem 0;
 }
 
-nav ul div li {
+nav ul div li a {
 	padding-left: 1rem;
-}
-
-.nav-group li:not(:first-of-type) {
-    padding-left: 1rem; 
 }
 
 .show {
@@ -1135,8 +1082,6 @@ header ul {
     display: flex;
     flex-direction: column;
 	padding: 0;
-    /* text-align: center; */
-    /* padding-top: 2rem; */
 }
 
 nav a {
@@ -1144,9 +1089,12 @@ nav a {
     padding: 0.5rem 0;;
     color: black;
 	text-decoration: none;
+	font-weight: 600;
+	font-family: "Quicksand", sans-serif;
+	font-size: 1.2rem;
 }
 
-nav a:hover {
+nav li a:hover {
     color: #2C95C3;
 } 
 
@@ -1158,8 +1106,13 @@ nav a:visited {
     display: flex;
     justify-content: space-between; 
     align-items: center; 
-	padding: 1rem 2.5rem;
-    position: relative;
+	padding: 1rem 2.5rem 0;
+}
+
+ul div .indent {
+	padding-left: 2rem;
+	font-size: 1rem;
+	font-weight: 400;
 }
 
 .logo {
@@ -1181,6 +1134,8 @@ nav a:visited {
     width: 2rem; 
     height: 2rem;
 }
+
+
 
 
 @media screen and (min-width: 800px) {
@@ -1293,7 +1248,9 @@ nav a:visited {
     background-color: #f7f5eb; 
     padding: 1.5rem;
     margin-bottom: 4rem;
+
 }
+
 
 .lions-club {
     background-color: #ffffff; 
@@ -1323,107 +1280,6 @@ nav a:visited {
 }
 
 
-/* OFF ROAD SAFETY */
-
-.off-road-safety img,
-.off-highway img {
-	margin-top: 1rem;
-	border-radius: 13px;
-}
-
-.guidelines,
-.off-highway {
-	background-color: white;
-	padding: 2rem 0;
-}
-
-.guidelines ul {
-	list-style-type: disc; 
-	/* margin-left: 1rem; */
-}
-
-.code-of-ethics h2 {
-	text-align: center;
-}
-
-.code-of-ethics {
-	padding: 2rem 0;
-}
-
-.off-highway .title-text {
-	width: 80%;
-	margin: 0 auto;
-	padding: 1rem 0 0;
-}
-
-.title-container {
-    position: relative;
-    text-align: center;
-	padding-bottom: 2rem;
-    max-width: 600px; 
-    margin: 0 auto;
-}
-
-.off-highway .title-container {
-	padding-bottom: 1.5rem;
-}
-
-
-.title-text {
-    margin: 0;
-    padding: 10px 0;
-}
-
-.snowflake {
-    position: absolute;
-    width: 120px;
-    height: auto;
-}
-
-/* Left snowflake */
-.snowflake-left {
-    top: 0px;
-    left: -10%;
-    transform: translateY(-50%);
-}
-
-.code-of-ethics .snowflake-left,
-.code-of-ethics .snowflake-right  {
-	top: 20px;
-}
-
-.off-highway .snowflake-left {
-	top: 26px;
-}
-
-/* Right snowflake */
-.snowflake-right {
-    top: 0px; 
-    right: -10%;
-    transform: translateY(-50%);
-}
-
-.snowflake-left::after {
-    content: '';
-    position: absolute;
-    top: 100%; 
-    left: 50%;
-    width: 2px;
-    height: 20px; 
-    background-color: #cccccc;
-    transform: translateX(-50%);
-}
-
-.snowflake-right::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 2px;
-    height: 20px; 
-    background-color: #cccccc;
-    transform: translateX(-50%);
-}
 
 
 /* RESULTS PAGE */
@@ -1441,16 +1297,71 @@ nav a:visited {
 	object-fit: cover;
 }
 
+.results div div {
+	padding-left: 1rem;
+}
+
 /*--------------- EVENTS POPUP -------------- */
 
-.filter-button{
-	    color: white;
-    border: #2C95C3 1px solid;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
+/* EVENTS PAGE */
+.event-filters {
+	display: flex;
+	gap: 1rem;
+	justify-content: space-around;
+	margin: 2rem 0;
 }
+
+#event-list {
+	margin: 2rem 0;
+}
+
+.filter-button {
+	color: black;
+	cursor: pointer;
+	font-size: 1.5rem;
+	font-family: "Quicksand", sans-serif;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+
+.filter-button span {
+    border-bottom: 2px solid transparent; /* Default invisible border */
+}
+
+.filter-button:hover span {
+    border-bottom: 2px solid #2C95C3; /* Black border on hover */
+}
+
+.filter-button:focus span,
+.filter-button:active span {
+    border-bottom: 3px solid #2C95C3; /* Blue border when focused or active */
+}
+
+.event-filters button {
+    position: relative; /* Required for the snowflake placement */
+    padding-left: 3rem; /* Space for the snowflake */
+    text-align: left; /* Align text properly */
+    border: none; /* Remove default button border */
+    background: none; /* Remove default button background */
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: black;
+}
+
+.event-filters button.active::before {
+    content: ''; /* No text, just an image */
+    position: absolute;
+    left: 0; /* Position to the left of the text */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Center adjustment */
+    width: 2.5rem; /* Set the desired width */
+    height: 2.5rem; /* Set the desired height */
+    background-image: url("img/single-snowflake.png"); /* Path to your snowflake */
+    background-size: contain; /* Ensure the snowflake scales correctly */
+    background-repeat: no-repeat; /* Avoid repeating the image */
+}
+
 
 /* Basic modal styles */
 .modal {
@@ -1531,40 +1442,60 @@ nav a:visited {
     transition: opacity 0.3s ease;
 }
 
-
-/* home page */
+/* Home Page */
 .featured {
-    text-align: center; 
-    padding: 2rem 0; 
-	z-index: 99;
+    padding: 2rem 0;
+    text-align: center;
 }
 
-.featured h2 {
+.featured .title-container {
+    position: relative;
+    text-align: center;
+    padding-bottom: 2rem;
+    max-width: 600px; /* Ensure the title container doesn't stretch too wide */
+    margin: 0 auto;
+}
+
+.featured .title-text {
+    margin: 0;
+    padding: 10px 0;
     font-size: 2rem;
     font-weight: bold;
- 	margin: 2rem 0 3rem;
-    display: inline-block; 
-    padding: 0 2rem; 
-    z-index: -9; 
-	position: relative; 
 }
 
-.featured .snowflake-left,
-.featured .snowflake-right {
+.featured .snowflake {
     position: absolute;
-    top: 86.5%; 
-    transform: translateY(-50%);
-    width: 9rem;
+    width: 120px; /* Adjust snowflake size */
     height: auto;
 }
 
+/* Left snowflake */
 .featured .snowflake-left {
-	left: -1rem;
+    top: 40px; /* Align with the top of the title */
+    left: -10%; /* Slightly outside the container */
+    transform: translateY(-50%);
 }
 
+/* Right snowflake */
 .featured .snowflake-right {
-	right: -1rem;
+    top: 40px; /* Align with the top of the title */
+    right: -10%; /* Slightly outside the container */
+    transform: translateY(-50%);
 }
+
+/* Optional: Add connecting lines for the snowflakes */
+.featured .snowflake-left::after,
+.featured .snowflake-right::after {
+    content: '';
+    position: absolute;
+    top: 90%; /* Place the line below the snowflake */
+    left: 50%; /* Center it under the snowflake */
+    width: 2px;
+    height: 20px; /* Line length */
+    background-color: #cccccc;
+    transform: translateX(-50%);
+}
+
 
 .event {
 	cursor: pointer;
@@ -1579,7 +1510,8 @@ nav a:visited {
 	text-transform: uppercase;
 }
 
-.featured button {
+.featured button,
+.volunteer button {
 	background-color: #B34242;
 	color: white;
 	padding: .8rem;
@@ -1602,6 +1534,10 @@ nav a:visited {
     align-items: center;
     text-align: center; 
 	border-radius: 13px;
+}
+
+.about-us .snomodays {
+	background-image: url('img/homepage-snomo.png'); 
 }
 
 .overlay {
@@ -1649,14 +1585,56 @@ nav a:visited {
 
 }
 
+/* VOLUNTEER HOMEPAGE */
+
+.volunteer {
+    background-color: #263042;
+    color: white;
+    padding: 3rem 0 10rem;
+    position: relative; 
+	/* background-image: url(img/volunteer-banner.png); */
+
+}
+
+.volunteer img {
+	display: block; 
+    position: absolute; 
+    bottom: -35%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 100%; 
+    max-width: 90%;
+    height: 200px; 
+    object-fit: cover;
+    border-radius: 30px; 
+    margin-top: 3rem; 
+}
+
+.volunteer .button {
+	display: flex;
+	justify-content: center; 
+    align-items: center;
+}
+
+.volunteer button {
+	margin: 2rem 0 1rem;
+}
+
 /* sponsors */
+
+.sponsors {
+	background-color: white;
+	padding: 2rem 0;
+	padding-top: 8rem;
+}
 
 .sponsors h2 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
+	text-align: center;
 }
 
-.sponsors div {
+.sponsors div div {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
     gap: 2rem; 
@@ -1664,14 +1642,120 @@ nav a:visited {
     align-items: center; 
 }
 
-.sponsors img {
-    max-width: 100%; /* Ensure images fit within their grid space */
-    height: auto; /* Maintain the aspect ratio */
-    display: block; 
-    padding: 0.5rem; 
-    border-radius: 5px; /* Optional: Add rounded corners */
+.sponsors div div img:nth-of-type(3) {
+	width: 80%;
+	margin: 0 auto;
 }
 
+.sponsors img {
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
+    padding: 0.5rem; 
+    border-radius: 5px;
+}
+
+ 
+/* OFF ROAD SAFETY */
+
+.off-road-safety img,
+.off-highway img {
+	margin-top: 1rem;
+	border-radius: 13px;
+}
+
+.guidelines,
+.off-highway {
+	background-color: white;
+	padding: 2rem 0;
+}
+
+.guidelines ul {
+	list-style-type: disc; 
+	/* margin-left: 1rem; */
+}
+
+.code-of-ethics h2 {
+	text-align: center;
+}
+
+.code-of-ethics {
+	padding: 2rem 0;
+}
+
+.off-highway .title-text {
+	width: 80%;
+	margin: 0 auto;
+	padding: 1rem 0 0 1rem;
+}
+
+.off-road-safety .title-container {
+    position: relative;
+    text-align: center;
+	padding-bottom: 2rem;
+    max-width: 600px; 
+    margin: 0 auto;
+}
+
+.title-container {
+	padding-bottom: 2rem;
+}
+
+.title-text {
+    margin: 0;
+    padding: 10px 0;
+}
+
+.snowflake {
+    position: absolute;
+    width: 120px;
+    height: auto;
+}
+
+/* Left snowflake */
+.snowflake-left {
+    top: 0px;
+    left: -10%;
+    transform: translateY(-50%);
+}
+
+.code-of-ethics .snowflake-left,
+.code-of-ethics .snowflake-right  {
+	top: 20px;
+}
+
+.off-highway .snowflake-left {
+	top: 26px;
+}
+
+/* Right snowflake */
+.snowflake-right {
+    top: 0px; 
+    right: -10%;
+    transform: translateY(-50%);
+}
+
+.snowflake-left::after {
+    content: '';
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    width: 2px;
+    height: 20px; 
+    background-color: #cccccc;
+    transform: translateX(-50%);
+}
+
+.snowflake-right::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 2px;
+    height: 20px; 
+    background-color: #cccccc;
+    transform: translateX(-50%);
+}
 
 
 @media (max-width: 768px) {
