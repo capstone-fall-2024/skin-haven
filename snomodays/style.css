@@ -66,7 +66,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
- html {
+html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
 	overflow-x: hidden;
@@ -101,8 +101,8 @@ h1 {
 	margin: 0.67em 0;
 }
 
-h1, 
-h2, 
+h1,
+h2,
 h3,
 h4 {
 	font-family: "Quicksand", sans-serif;
@@ -513,8 +513,8 @@ ol {
 	list-style: decimal;
 }
 
-li > ul,
-li > ol {
+li>ul,
+li>ol {
 	margin-bottom: 0;
 	/* margin-left: 1.5em; */
 }
@@ -678,10 +678,8 @@ textarea {
 }
 
 .site-main .comment-navigation,
-.site-main
-.posts-navigation,
-.site-main
-.post-navigation {
+.site-main .posts-navigation,
+.site-main .post-navigation {
 	margin: 0 0 1.5em;
 }
 
@@ -933,56 +931,90 @@ textarea {
 
 
 .container {
-    max-width: 60rem;
-    margin: 0 auto;
+	max-width: 60rem;
+	margin: 0 auto;
 	padding: 0 1rem;
 }
 
 /* grid system  remove after*/
 /* Left Margin */
-body::before {
+/* body::before {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 16px;
+	height: 100%;
+	background-color: rgba(0, 255, 51, 0.1);
+	z-index: 9999;
+	pointer-events: none;
+} */
+
+/* Right Margin */
+/* body::after {
+	content: "";
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 16px;
+	height: 100%;
+	background-color: rgba(0, 255, 51, 0.1);
+	z-index: 9999;
+	pointer-events: none;
+}
+
+body::after {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: calc(100% - 32px);
+	height: 100%;
+	pointer-events: none;
+	z-index: 9999;
+	background: repeating-linear-gradient(to right,
+			transparent,
+			transparent calc((100% - (3 * 24px)) / 4),
+			rgba(255, 0, 0, 0.1) calc((100% - (3 * 24px)) / 4),
+			rgba(255, 0, 0, 0.1) calc(((100% - (3 * 24px)) / 4) + 24px)
+		);
+} */
+
+/* body::before {
     content: "";
     position: fixed;
     top: 0;
     left: 0;
-    width: 16px; 
+    width: 100%; 
     height: 100%; 
-    background-color: rgba(0, 255, 51, 0.1); 
-    z-index: 9999; 
-    pointer-events: none;
-}
-
-/* Right Margin */
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 16px; 
-    height: 100%; 
-    background-color: rgba(0, 255, 51, 0.1); 
-    z-index: 9999; 
-    pointer-events: none; 
-}
-
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 50%; /* Center the grid */
-    transform: translateX(-50%); /* Adjust for center alignment */
-    width: calc(100% - 32px); /* Total width minus left and right margins */
-    height: 100%; /* Full height of the viewport */
-    pointer-events: none; /* Ensure it doesn’t interfere with interactions */
     z-index: 9999;
+    pointer-events: none;
+    background: 
+        linear-gradient(to right, rgba(0, 255, 51, 0.1) 100px, 
+        transparent 100px, transparent calc(100% - 100px), 
+        rgba(0, 255, 51, 0.1)calc(100% - 100px)); 
+    background-repeat: no-repeat;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 100px; 
+    width: calc(100% - 200px);
+    height: 100%; 
+    z-index: 9999;
+    pointer-events: none; 
     background: repeating-linear-gradient(
         to right,
-        transparent,
-        transparent calc((100% - (3 * 24px)) / 4), /* First grid column */
-        rgba(255, 0, 0, 0.1) calc((100% - (3 * 24px)) / 4), /* Grid line */
-        rgba(255, 0, 0, 0.1) calc(((100% - (3 * 24px)) / 4) + 24px) /* Grid + gutter */
+        rgba(255, 0, 0, 0.1), 
+        rgba(255, 0, 0, 0.1) calc((100% - (11 * 32px)) / 12),
+        transparent calc((100% - (11 * 32px)) / 12),
+        transparent calc(((100% - (11 * 32px)) / 12) + 32px) 
     );
-}
+} */
+
 
 
 
@@ -990,30 +1022,30 @@ body::after {
 /* header */
 
 header {
-    /* padding: 1rem; */
-    position: relative;
+	/* padding: 1rem; */
+	position: relative;
 }
 
 .site-header {
 	background-image: url(img/banner-mobile.jpg);
-	background-size: cover; 
-    background-repeat: no-repeat;
-    background-position: center; 
-    width: 100%; 
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 100%;
 	color: white;
-	height: 35rem;
+	height: auto;
 	/* margin-bottom: 3rem; */
 }
 
 .header-overlay {
 	background-color: rgba(0, 0, 0, 0.1);
-	width: 100%; 
+	width: 100%;
 	height: 100%;
-	z-index: 2; /* Ensure it's above the background */
+	z-index: 2;
+	/* Ensure it's above the background */
 	padding: 1rem;
-
+	padding-bottom: 3rem;
 }
-
 
 .banner button {
 	background-color: #2C95C3;
@@ -1028,45 +1060,46 @@ body {
 }
 
 button {
-    border: 0;
-    background-color: transparent;
-    padding: 0.625rem;
+	border: 0;
+	background-color: transparent;
+	padding: 0.625rem;
 	text-transform: uppercase;
+	border-radius: 8px;
 }
 
 .logo {
-    padding: 0.625rem;
+	padding: 0.625rem;
 }
 
 header img {
-    width: 6rem;
+	width: 6rem;
 }
 
 header svg {
-    width: 2rem;
-    height: auto;
+	width: 2rem;
+	height: auto;
 }
 
 header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 nav {
-    position: absolute;
-    top: 0;
-    right: -100%; 
-    width: 100%;
-    background-color: #F7F5EB;
-    height: 100vh;
-    transition: right 0.6s ease-in-out; 
-    z-index: 9999; 
+	position: absolute;
+	top: 0;
+	right: -100%;
+	width: 100%;
+	background-color: #F7F5EB;
+	height: 100vh;
+	transition: right 0.6s ease-in-out;
+	z-index: 9999;
 	text-transform: uppercase;
 }
 
 nav ul div {
-    border-bottom: 1px solid #111; 
+	border-bottom: 1px solid #111;
 	padding: .3rem 0;
 }
 
@@ -1075,19 +1108,20 @@ nav ul div li a {
 }
 
 .show {
-    right: 0; 
+	right: 0;
 }
 
 header ul {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 	padding: 0;
 }
 
 nav a {
-    display: block;
-    padding: 0.5rem 0;;
-    color: black;
+	display: block;
+	padding: 0.5rem 0;
+	;
+	color: black;
 	text-decoration: none;
 	font-weight: 600;
 	font-family: "Quicksand", sans-serif;
@@ -1095,17 +1129,17 @@ nav a {
 }
 
 nav li a:hover {
-    color: #2C95C3;
-} 
+	color: #2C95C3;
+}
 
 nav a:visited {
 	color: black;
 }
 
 .active-header {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	padding: 1rem 2.5rem 0;
 }
 
@@ -1116,70 +1150,23 @@ ul div .indent {
 }
 
 .logo {
-    max-width: 6rem;
-    height: auto;
+	max-width: 6rem;
+	height: auto;
 }
 
 .active-tog-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    position: relative; 
-    right: 0; 
-    margin-left: auto; 
-    padding: 0.5rem;
+	background: none;
+	border: none;
+	cursor: pointer;
+	position: relative;
+	right: 0;
+	margin-left: auto;
+	padding: 0.5rem;
 }
 
 .active-tog-btn svg {
-    width: 2rem; 
-    height: 2rem;
-}
-
-
-
-
-@media screen and (min-width: 800px) {
-    .container {
-        max-width: 60rem;
-        margin: 0 auto;
-    }
-    
-    .active-tog-btn {
-        display: none;
-    }
-
-	.tog-btn {
-		display: none;
-	}
-
-	nav img{
-		display: none;
-	}
-
-    nav {
-        background-color: transparent;
-        position: static;
-        height: auto;
-        width: unset;
-    }
-    
-    header ul {
-        flex-direction: row;
-        padding: 0;
-        gap: .7rem;
-    }
-
-    nav a {
-        color: #3E3232;
-        white-space: nowrap;
-        padding: .5rem .4rem;
-    }
-
-    nav a:hover {
-        color: #F5EBEB;
-        background-color: #867070;
-        border-radius: 5px;
-    }
+	width: 2rem;
+	height: 2rem;
 }
 
 /* footer */
@@ -1197,8 +1184,8 @@ ul div .indent {
 
 .site-footer ul {
 	list-style-type: none;
-	padding: 0; 
-    margin: 0; 
+	padding: 0;
+	margin: 0;
 }
 
 .site-footer img {
@@ -1206,20 +1193,20 @@ ul div .indent {
 }
 
 .site-footer .social {
-    display: flex;
-    justify-content: center; 
-    gap: 1rem; 
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
 	padding: 2rem 0 1.5rem;
 }
 
 .site-footer svg {
-    fill: white;
-    max-width: 1.5rem;
+	fill: white;
+	max-width: 1.5rem;
 }
 
 .site-footer svg {
-    fill: white;
-    max-width: 1.5rem;
+	fill: white;
+	max-width: 1.5rem;
 }
 
 .site-footer a {
@@ -1230,52 +1217,64 @@ ul div .indent {
 /* about us */
 
 .title {
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px; 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
 }
 
 .line {
-    width: 70%; 
-    max-width: 400px;
-    height: 2px; 
-    background-color: #2c95c3; 
-    margin-left: 1.5rem;
+	width: 70%;
+	max-width: 400px;
+	height: 2px;
+	background-color: #2c95c3;
+	margin-left: 1.5rem;
 }
 
 .snomo {
-    background-color: #f7f5eb; 
-    padding: 1.5rem;
-    margin-bottom: 4rem;
+	background-color: #f7f5eb;
+	padding: 1.5rem;
+	margin-bottom: 4rem;
 
 }
 
-
 .lions-club {
-    background-color: #ffffff; 
+	background-color: #ffffff;
 	padding: 8rem 0 3rem;
 }
 
+.lions-club a {
+	background-color: #2c95c3;
+    color: white;
+    padding: .8rem;
+	border-radius: 8px;
+}
+
+.lions-club a:hover {
+	background-color: transparent;
+	border: #2c95c3 1px solid;
+	color: #2c95c3;
+}
+
 .background-container {
-    position: relative;
-    text-align: center;
-    padding: 20px 0;
+	position: relative;
+	text-align: center;
+	padding: 20px 0;
 	margin: 2rem 0;
 }
 
 /* Style for the floating image */
 .floating-image {
-    display: block;
-    position: absolute;
-    top: 50%; 
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    width: 100%; 
-    max-width: 90%;
-	object-fit: cover; 
-    height: 200px;
-    border-radius: 110px; 
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	max-width: 55rem;
+	object-fit: cover;
+	height: 200px;
+	border-radius: 110px;
 	margin-top: 3rem;
 }
 
@@ -1326,174 +1325,189 @@ ul div .indent {
 
 
 .filter-button span {
-    border-bottom: 2px solid transparent; /* Default invisible border */
+	border-bottom: 2px solid transparent;
+	/* Default invisible border */
 }
 
 .filter-button:hover span {
-    border-bottom: 2px solid #2C95C3; /* Black border on hover */
+	border-bottom: 2px solid #2C95C3;
 }
 
 .filter-button:focus span,
 .filter-button:active span {
-    border-bottom: 3px solid #2C95C3; /* Blue border when focused or active */
+	border-bottom: 3px solid #2C95C3;
 }
 
 .event-filters button {
-    position: relative; /* Required for the snowflake placement */
-    padding-left: 3rem; /* Space for the snowflake */
-    text-align: left; /* Align text properly */
-    border: none; /* Remove default button border */
-    background: none; /* Remove default button background */
-    font-size: 1.2rem;
-    cursor: pointer;
-    color: black;
+	position: relative;
+	padding-left: 3rem;
+	text-align: left;
+	border: none;
+	background: none;
+	font-size: 1.2rem;
+	cursor: pointer;
+	color: black;
 }
 
 .event-filters button.active::before {
-    content: ''; /* No text, just an image */
-    position: absolute;
-    left: 0; /* Position to the left of the text */
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%); /* Center adjustment */
-    width: 2.5rem; /* Set the desired width */
-    height: 2.5rem; /* Set the desired height */
-    background-image: url("img/single-snowflake.png"); /* Path to your snowflake */
-    background-size: contain; /* Ensure the snowflake scales correctly */
-    background-repeat: no-repeat; /* Avoid repeating the image */
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 2.5rem;
+	height: 2.5rem;
+	background-image: url("img/single-snowflake.png");
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 
 
 /* Basic modal styles */
 .modal {
-    position: fixed;
-    top: 0;
-    right: 0; /* Position it to the right side of the screen */
-    bottom: 0;
-    width: 30%; /* Modal takes up 50% of the screen width */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    display: none;
-    z-index: 9999;
-    overflow-y: auto; /* Allow scrolling if content overflows */
+	position: fixed;
+	top: 0;
+	right: 0;
+	/* Position it to the right side of the screen */
+	bottom: 0;
+	width: 30%;
+	/* Modal takes up 50% of the screen width */
+	background-color: rgba(0, 0, 0, 0.5);
+	/* Semi-transparent background */
+	display: none;
+	z-index: 9999;
+	overflow-y: auto;
+	/* Allow scrolling if content overflows */
 }
 
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 	width: 100%;
 	height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+	background-color: rgba(0, 0, 0, 0.7);
+	/* Dark overlay */
 }
 
 .modal-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%; /* Fill the right half of the screen */
-    height: 100%; /* Full height of the screen */
-    background-color: #fff;
-    padding: 20px;
-    overflow-y: auto; /* Enable scroll if content is taller than the screen */
-    border-left: 3px solid #ddd; /* Add a border on the left side of the modal */
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	/* Fill the right half of the screen */
+	height: 100%;
+	/* Full height of the screen */
+	background-color: #fff;
+	padding: 20px;
+	overflow-y: auto;
+	/* Enable scroll if content is taller than the screen */
+	border-left: 3px solid #ddd;
+	/* Add a border on the left side of the modal */
 }
 
 .modal-header {
-    position: relative;
-    padding-top: 15px;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid #ddd;
-    text-align: center; /* Center the title */
+	position: relative;
+	padding-top: 15px;
+	padding-bottom: 3rem;
+	border-bottom: 1px solid #ddd;
+	text-align: center;
+	/* Center the title */
 }
 
 .modal-body h2 {
-    margin: 0;
-    font-size: 24px;
+	margin: 0;
+	font-size: 24px;
 }
 
 .close-modal {
-    position: absolute;
-    top: 10px;
-    left: 10px; /* Move the close button to the left */
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #333;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	/* Move the close button to the left */
+	font-size: 30px;
+	font-weight: bold;
+	cursor: pointer;
+	color: #333;
 }
 
 .close-modal:hover {
-    color: #f00;
+	color: #f00;
 }
 
 /* Modal Body */
 .modal-body {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
 .modal-body img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 15px;
+	max-width: 100%;
+	height: auto;
+	margin-bottom: 15px;
 }
 
 /* Optional: Add smooth fade-in/fade-out transition for the modal */
-.modal, .modal-container {
-    transition: opacity 0.3s ease;
+.modal,
+.modal-container {
+	transition: opacity 0.3s ease;
 }
 
 /* Home Page */
 .featured {
-    padding: 2rem 0;
-    text-align: center;
+	padding: 2rem 0 1rem;
+	text-align: center;
 }
 
 .featured .title-container {
-    position: relative;
-    text-align: center;
-    padding-bottom: 2rem;
-    max-width: 600px; /* Ensure the title container doesn't stretch too wide */
-    margin: 0 auto;
+	position: relative;
+	text-align: center;
+	padding-bottom: 2rem;
+	max-width: 600px;
+	/* Ensure the title container doesn't stretch too wide */
+	margin: 0 auto;
 }
 
 .featured .title-text {
-    margin: 0;
-    padding: 10px 0;
-    font-size: 2rem;
-    font-weight: bold;
+	margin: 0;
+	padding: 10px 0;
+	font-size: 2rem;
+	font-weight: bold;
 }
 
 .featured .snowflake {
-    position: absolute;
-    width: 120px; /* Adjust snowflake size */
-    height: auto;
+	position: absolute;
+	width: 120px;
+	/* Adjust snowflake size */
+	height: auto;
 }
 
 /* Left snowflake */
 .featured .snowflake-left {
-    top: 40px; /* Align with the top of the title */
-    left: -10%; /* Slightly outside the container */
-    transform: translateY(-50%);
+	top: 40px;
+	left: -10%;
+	transform: translateY(-50%);
 }
 
 /* Right snowflake */
 .featured .snowflake-right {
-    top: 40px; /* Align with the top of the title */
-    right: -10%; /* Slightly outside the container */
-    transform: translateY(-50%);
+	top: 40px;
+	right: -10%;
+	transform: translateY(-50%);
 }
 
 /* Optional: Add connecting lines for the snowflakes */
 .featured .snowflake-left::after,
 .featured .snowflake-right::after {
-    content: '';
-    position: absolute;
-    top: 90%; /* Place the line below the snowflake */
-    left: 50%; /* Center it under the snowflake */
-    width: 2px;
-    height: 20px; /* Line length */
-    background-color: #cccccc;
-    transform: translateX(-50%);
+	content: '';
+	position: absolute;
+	top: 90%;
+	left: 50%;
+	width: 2px;
+	height: 20px;
+	background-color: #cccccc;
+	transform: translateX(-50%);
 }
 
 
@@ -1522,34 +1536,34 @@ ul div .indent {
 
 .about-us .snomodays,
 .about-us .lionsclub {
-    background-image: url('img/snowcabin.jpg'); 
-	background-size: cover; 
-    background-repeat: no-repeat;
-    background-position: center; 
-    color: white; 
-    width: 100%; 
-    height: 80vh;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    text-align: center; 
+	background-image: url('img/snowcabin.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	color: white;
+	width: 100%;
+	height: 80vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 	border-radius: 13px;
 }
 
 .about-us .snomodays {
-	background-image: url('img/homepage-snomo.png'); 
+	background-image: url('img/homepage-snomo.png');
 }
 
 .overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-	width: 100%; 
-    height: 100%; 
-    display: flex; 
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 100%;
+	display: flex;
 	flex-direction: column;
-    justify-content: center; 
-    align-items: center; 
-    text-align: center; 
-    color: white; 
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: white;
 	border-radius: 13px;
 	padding: 1rem;
 }
@@ -1561,23 +1575,23 @@ ul div .indent {
 }
 
 .overlay h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+	font-size: 2rem;
+	margin-bottom: 1rem;
 }
 
 .overlay p {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
+	font-size: 1rem;
+	margin-bottom: 1.5rem;
 }
 
 .overlay button {
-    /* background-color: #B34242; */
-    color: white;
-    border: #2C95C3 1px solid;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
+	/* background-color: #B34242; */
+	color: white;
+	border: #2C95C3 1px solid;
+	padding: 0.75rem 1.5rem;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 1rem;
 }
 
 .overlay button:hover {
@@ -1588,32 +1602,33 @@ ul div .indent {
 /* VOLUNTEER HOMEPAGE */
 
 .volunteer {
-    background-color: #263042;
-    color: white;
-    padding: 3rem 0 10rem;
-    position: relative; 
+	background-color: #263042;
+	color: white;
+	padding: 3rem 0 10rem;
+	position: relative;
 	/* background-image: url(img/volunteer-banner.png); */
 
 }
 
 .volunteer img {
-	display: block; 
-    position: absolute; 
-    bottom: -35%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-    width: 100%; 
-    max-width: 90%;
-    height: 200px; 
-    object-fit: cover;
-    border-radius: 30px; 
-    margin-top: 3rem; 
+	display: block;
+	position: absolute;
+	bottom: -35%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	/* max-width: 60%; */
+	max-width: 90%;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 30px;
+	margin-top: 3rem;
 }
 
 .volunteer .button {
 	display: flex;
-	justify-content: center; 
-    align-items: center;
+	justify-content: center;
+	align-items: center;
 }
 
 .volunteer button {
@@ -1629,17 +1644,17 @@ ul div .indent {
 }
 
 .sponsors h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+	font-size: 2rem;
+	margin-bottom: 1.5rem;
 	text-align: center;
 }
 
 .sponsors div div {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-    gap: 2rem; 
-    justify-content: center; 
-    align-items: center; 
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	gap: 2rem;
+	justify-content: center;
+	align-items: center;
 }
 
 .sponsors div div img:nth-of-type(3) {
@@ -1648,14 +1663,14 @@ ul div .indent {
 }
 
 .sponsors img {
-    max-width: 100%; 
-    height: auto; 
-    display: block; 
-    padding: 0.5rem; 
-    border-radius: 5px;
+	max-width: 100%;
+	height: auto;
+	display: block;
+	padding: 0.5rem;
+	border-radius: 5px;
 }
 
- 
+
 /* OFF ROAD SAFETY */
 
 .off-road-safety img,
@@ -1699,6 +1714,11 @@ ul div .indent {
 
 .title-container {
 	padding-bottom: 2rem;
+	position: relative;
+    text-align: center;
+    padding-bottom: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .title-text {
@@ -1758,18 +1778,215 @@ ul div .indent {
 }
 
 
-@media (max-width: 768px) {
-    .modal {
-        width: 100%;  /* Full width on smaller screens */
-    }
-    .modal-container {
-        width: 100%;
-        padding: 10px;
-    }
-    .modal-header h2 {
-        font-size: 20px;  /* Smaller font size on smaller screens */
-    }
+@media screen and (min-width: 800px) {
+	.container,
+	.banner-container {
+		max-width: 60rem;
+		margin: 0 auto;
+	}
+
+	.active-tog-btn {
+		display: none;
+	}
+
+	.tog-btn {
+		display: none;
+	}
+
+	nav img {
+		display: none;
+	}
+
+	nav {
+		background-color: transparent;
+		position: static;
+		height: auto;
+		width: unset;
+	}
+
+	header ul {
+		flex-direction: row;
+		padding: 0;
+		gap: .7rem;
+	}
+
+	nav ul a {
+		color: white;
+		white-space: nowrap;
+		padding: .5rem .4rem;
+	}
+
+	nav a:visited {
+		color: white;
+	}
+
+	nav a:hover {
+		color: #F5EBEB;
+		background-color: #867070;
+		border-radius: 5px;
+	}
+
+	nav ul div {
+		border-bottom: none;
+	}
+
+	/* Hide the indented links by default */
+	/* .indent {
+		display: none;
+	} */
+
+	.first-level:hover .indent {
+		display: unset;
+	}
+
+	/* HOMEPAGE */
+
+	/* FEATURED */
+	#featuredEvents {
+		display: flex;
+		gap: 1rem;
+		width: 90%;
+		margin: 0 auto;
+	}
+
+	.featured .event {
+		padding: 0;
+	}
+
+	.featured img {
+		border-radius: 13px 13px 0 0;
+	}
+
+	.featured .event h3 {
+		padding: 0 1rem;
+	}
+
+	/* --ABOUT US---*/
+	.about-us > div{
+		display: flex;
+		flex-direction: row;
+	}
+
+	/* VOLUNTEER */
+	.volunteer {
+		padding: 2rem 0;
+		position: relative;
+	}
+	
+	.volunteer img {
+		max-width: 50%; /* Maintain responsiveness */
+		position: relative; /* Relative positioning to move it */
+		bottom: 100%; /* Move it below the section */
+		left: 25%;
+		margin: 0 auto; /* Center the image horizontally */
+		display: block; /* Ensures the image doesn't have inline spacing issues */
+	}
+	
+	.volunteer .container > div {
+		display: flex;
+		justify-content: space-between;
+		gap: 2rem;
+	}
+
+	.volunteer .button {
+		justify-content: unset;
+	}
+
+	/* ---EVENTS PAGE------  */
+	#event-list {
+		display: flex;
+		gap: 1rem;
+	}
+
+	/* CANCELLED */
+	.cancelled {
+		background-color: white;
+		margin: 1rem 0;
+		border-radius: 13px;
+		padding-bottom: 1rem;
+	}
+
+	.cancelled h3 {
+		background-color: #D93B3A;
+		padding: .5rem;
+		color: white;
+		border-radius: 13px;
+		margin: 1rem;
+	}
+
+	.section-line {
+		border: none; /* Remove the default 3D border */
+		border-top: 1px solid #B34242; /* Custom border style */
+		margin: 0; /* Reset default margins */
+		width: 100%; /* Span the full width of the parent */
+	}
+	
+
+	.cancelled h2 {
+		/* border-bottom: #B34242 1px solid; */
+		padding: 1rem;
+		display: block; 
+		margin: 0;
+		text-align: center;
+	}
+
+	/* .event-page {
+		display: flex;
+	} */
+
+	/* --OFF ROAD SAFETY--- */
+	.guidelines .container,
+	.off-highway .container {
+		display: flex;
+		gap: 2rem;
+	}
+
+	.large-img {
+		max-width: 20rem;
+
+	}
+
+	.off-highway .snowflake-left {
+		top: 0;
+		left: 0;
+	}
+
+	.guidelines .snowflake-left {
+		left: 3%;
+	}
+
+	/* --FOOTER--- */
+	.site-info {
+		display: flex;
+		justify-content: space-between;
+		text-align: left;
+	}
+
+	footer li {
+		padding: .3rem 0;
+	}
+
+	footer img {
+		height: auto;
+		max-width: 100%;
+	}
+
 }
 
 
+@media (max-width: 768px) {
+	.modal {
+		width: 100%;
+		/* Full width on smaller screens */
+	}
 
+	.modal-container {
+		width: 100%;
+		padding: 10px;
+	}
+
+	.modal-header h2 {
+		font-size: 20px;
+		/* Smaller font size on smaller screens */
+	}
+}

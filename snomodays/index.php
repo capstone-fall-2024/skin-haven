@@ -14,7 +14,7 @@
 
 get_header();
 ?>
-<section class="banner">
+<section class="banner banner-container">
 	<h1>
 		WELCOME TO SnoMo Days
 		Winter Festival
@@ -62,7 +62,7 @@ $the_query = new WP_Query( $args );
     <?php while( $the_query->have_posts() ) : $the_query->the_post();  $image = get_field('event_image'); ?>
         <div class='event' data-post-id="<?php the_ID(); ?>">
 		<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-		<h3><?php echo esc_html( get_field( 'title' ) ); ?></h3>
+		<h3><?php echo get_the_title(); ?></h3>
 		</div>
     <?php endwhile; ?>
 <?php endif; ?>
@@ -71,7 +71,7 @@ $the_query = new WP_Query( $args );
 			</div>
 			<div class="button">
 				<button>
-					view all events
+				<a href="<?php echo home_url( '/events/' ); ?>">view all events</a>
 				</button>
 			</div>
 	</section>
@@ -125,9 +125,11 @@ $the_query = new WP_Query( $args );
 	<section class="volunteer">
 		<div class="container">
 			<div>
-				<h2>Be Part of the Magic: <br> Volunteer with us</h2>
-				<p>Help bring the excitement to life! Join our team and help make this winter festival unforgettable.</p>
-				<div class="button"><button> Sign up now</button></div>
+				<div>
+					<h2>Be Part of the Magic: <br> Volunteer with us</h2>
+					<p>Help bring the excitement to life! Join our team and help make this winter festival unforgettable.</p>
+					<div class="button"><button> Sign up now</button></div>
+				</div>
 				<img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" alt="Snow Cabin" />
 			</div>
 		</div>

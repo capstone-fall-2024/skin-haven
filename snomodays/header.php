@@ -63,7 +63,7 @@
 							<li><a href="<?php echo home_url( '/' ); ?>">Home</a></li>
 						</div>
 						<div>
-							<li><a href="<?php echo home_url( '/about-us/' ); ?>">About Us</a></li>
+							<li><a  class="first-level"  href="<?php echo home_url( '/about-us/' ); ?>">About Us</a></li>
 							<li><a class="indent" href="#">Snomo Days</a></li>
 							<li><a class="indent" href="#">Lions Club</a></li>
 							<li><a class="indent" href="<?php echo home_url( '/off-road-safety/' ); ?>">Off-Road
@@ -76,7 +76,7 @@
 							<li><a href="<?php echo home_url( '/gallery/' ); ?>">Gallery</a></li>
 						</div>
 						<div>
-							<li><a href="<?php echo home_url( '/contact-us/' ); ?>">Contact Us</a></li>
+							<li><a class="first-level" href="<?php echo home_url( '/contact-us/' ); ?>">Contact Us</a></li>
 							<li><a class="indent" href="<?php echo home_url( '/volunteer/' ); ?>">Volunteer</a></li>
 						</div>
 						<div>
