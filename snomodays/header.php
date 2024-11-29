@@ -34,55 +34,69 @@
 			<?php esc_html_e( 'Skip to content', 'skin-haven' ); ?>
 		</a>
 
-		
+
 		<header id="masthead" class="site-header">
 			<div class="header-overlay">
-			<div class="container">
-				<img src="<?php bloginfo('stylesheet_directory');?>/img/snomo-logo.png" alt="Snomo Logo" class="logo" />
-				<button class="tog-btn" aria-label="Navigation Menu" aria-expanded="false" aria-controls="menu">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="size-6">
-						<path fill-rule="evenodd"
-							d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z"
-							clip-rule="evenodd" />
-						<title>navigation</title>
-					</svg>
-				</button>
-				<nav id="menu">
-					<div class="active-header container">
+				<!-- <div class="sub-header">
+					<h1>hello</h1>
+				</div> -->
+				<div class="container">
+					<a href="<?php echo home_url( '/' ); ?>">
 						<img src="<?php bloginfo('stylesheet_directory');?>/img/snomo-logo.png" alt="Snomo Logo"
 							class="logo" />
-						<button class="active-tog-btn">
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-								stroke="currentColor" class="size-6">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-							</svg>
-						</button>
-					</div>
-					<ul>
-						<div>
-							<li><a href="<?php echo home_url( '/' ); ?>">Home</a></li>
+					</a>
+					<button class="tog-btn" aria-label="Navigation Menu" aria-expanded="false" aria-controls="menu">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="size-6">
+							<path fill-rule="evenodd"
+								d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z"
+								clip-rule="evenodd" />
+							<title>navigation</title>
+						</svg>
+					</button>
+					<nav id="menu">
+						<div class="active-header container">
+							<img src="<?php bloginfo('stylesheet_directory');?>/img/snomo-logo.png" alt="Snomo Logo"
+								class="logo" />
+							<button class="active-tog-btn">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke-width="1.5" stroke="currentColor" class="size-6">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+								</svg>
+							</button>
 						</div>
-						<div>
-							<li><a href="<?php echo home_url( '/about-us/' ); ?>">About Us</a></li>
-							<li><a class="indent" href="#">Snomo Days</a></li>
-							<li><a class="indent" href="#">Lions Club</a></li>
-							<li><a class="indent" href="<?php echo home_url( '/off-road-safety/' ); ?>">Off-Road
-									Safety</a></li>
-						</div>
-						<div>
-							<li><a href="<?php echo home_url( '/events/' ); ?>">Events</a></li>
-						</div>
-						<div>
-							<li><a href="<?php echo home_url( '/gallery/' ); ?>">Gallery</a></li>
-						</div>
-						<div>
-							<li><a href="<?php echo home_url( '/contact-us/' ); ?>">Contact Us</a></li>
-							<li><a class="indent" href="<?php echo home_url( '/volunteer/' ); ?>">Volunteer</a></li>
-						</div>
-						<div>
-							<li><a href="<?php echo home_url( '/results/' ); ?>">Results</a></li>
-						</div>
-					</ul>
-
-				</nav>
-			</div>
+						<ul>
+							<div>
+								<li><a href="<?php echo home_url( '/' ); ?>">Home</a></li>
+							</div>
+							<div>
+								<li class="first-level">
+									<a href="<?php echo home_url( '/about-us/' ); ?>">About Us</a>
+									<ul class="indent">
+										<li><a href="#">Snomo Days</a></li>
+										<li><a href="#">Lions Club</a></li>
+										<li><a href="<?php echo home_url( '/off-road-safety/' ); ?>">Off-Road Safety</a>
+										</li>
+									</ul>
+								</li>
+							</div>
+							<div>
+								<li><a href="<?php echo home_url( '/events/' ); ?>">Events</a></li>
+							</div>
+							<div>
+								<li><a href="<?php echo home_url( '/gallery/' ); ?>">Gallery</a></li>
+							</div>
+							<div>
+								<li class="first-level">
+									<a href="<?php echo home_url( '/contact-us/' ); ?>">Contact Us</a>
+									<ul class="indent">
+										<li><a href="<?php echo home_url( '/volunteer/' ); ?>">Volunteer</a></li>
+									</ul>
+								</li>
+							</div>
+							<div>
+								<li><a href="<?php echo home_url( '/results/' ); ?>">Results</a></li>
+							</div>
+							<a href="#" class="header-button" >Get Tickets</a>
+						</ul>
+					</nav>
+				</div>

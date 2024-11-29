@@ -14,7 +14,7 @@
 
 get_header();
 ?>
-<section class="banner">
+<section class="banner banner-container">
 	<h1>
 		WELCOME TO SnoMo Days
 		Winter Festival
@@ -24,7 +24,7 @@ get_header();
 		from thrilling sports to cozy community fun. Entry fees support local charities, making every moment count!
 	</p>
 	<button>
-		Learn More
+		<a href="<?php echo home_url( '/about-us/' ); ?>">Learn More</a>
 	</button>
 </section>
 
@@ -33,18 +33,18 @@ get_header();
 </header><!-- #masthead -->
 
 <main id="primary" class="site-main">
-	<!-- Site Banner !-->
-
 	<!-- Featured events section !-->
 	<div class="container">
 		<section class="featured">
-		<div class="title-container">
-            <img src="<?php bloginfo('stylesheet_directory'); ?>/img/homepage-snowflake-left.png" alt="Snowflake Left" class="snowflake snowflake-left" />
-            <h2 class="title-text">Featured</h2>
-            <img src="<?php bloginfo('stylesheet_directory'); ?>/img/homepage-snowflake-right.png" alt="Snowflake Right" class="snowflake snowflake-right" />
-        </div>
+			<div class="title-container">
+				<img src="<?php bloginfo('stylesheet_directory'); ?>/img/homepage-snowflake-left2.png"
+					alt="Snowflake Left" class="snowflake snowflake-left" />
+				<h2 class="title-text">Featured</h2>
+				<img src="<?php bloginfo('stylesheet_directory'); ?>/img/homepage-snowflake-right2.png"
+					alt="Snowflake Right" class="snowflake snowflake-right" />
+			</div>
 			<div id='featuredEvents'>
-			<?php 
+				<?php 
 
 // args
 $args = array(
@@ -58,23 +58,25 @@ $args = array(
 // query
 $the_query = new WP_Query( $args );
 ?>
-<?php if( $the_query->have_posts() ): ?>
-    <?php while( $the_query->have_posts() ) : $the_query->the_post();  $image = get_field('event_image'); ?>
-        <div class='event' data-post-id="<?php the_ID(); ?>">
-		<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-		<h3><?php echo esc_html( get_field( 'title' ) ); ?></h3>
-		</div>
-    <?php endwhile; ?>
-<?php endif; ?>
+				<?php if( $the_query->have_posts() ): ?>
+				<?php while( $the_query->have_posts() ) : $the_query->the_post();  $image = get_field('event_image'); ?>
+				<div class='event' data-post-id="<?php the_ID(); ?>">
+					<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+					<h3>
+						<?php echo get_the_title(); ?>
+					</h3>
+				</div>
+				<?php endwhile; ?>
+				<?php endif; ?>
 
-<?php wp_reset_query();   // Restore global post data stomped by the_post(). ?>
+				<?php wp_reset_query();   // Restore global post data stomped by the_post(). ?>
 			</div>
 			<div class="button">
 				<button>
-					view all events
+					<a href="<?php echo home_url( '/events/' ); ?>">view all events</a>
 				</button>
 			</div>
-	</section>
+		</section>
 	</div>
 	<!-- Modal Structure -->
 	<div id="modal" class="modal" style="display:none;">
@@ -92,18 +94,20 @@ $the_query = new WP_Query( $args );
 					<div class="overlay">
 						<h3>SNOMO DAYS</h3>
 						<p>
-							SnoMo Days is an Alberta Winter Festival, dedicated to supporting motorized and non-motorized winter
+							SnoMo Days is an Alberta Winter Festival, dedicated to supporting motorized and
+							non-motorized winter
 							sports and family orientated winter leisure activities.
 						</p>
 						<button>
-						<a href="<?php echo home_url( '/about-us/#about-snomo' ); ?>">READ MORE</a>
+							<a href="<?php echo home_url( '/about-us/#about-snomo' ); ?>">READ MORE</a>
 						</button>
 					</div>
 				</Section>
 				<section class="lionsclub">
 					<div class="overlay">
 						<h3>LIONS CLUB</h3>
-						<p>Lions of Alberta Foundation was created to facilitate a body of individuals to unite the Lions Clubs of
+						<p>Lions of Alberta Foundation was created to facilitate a body of individuals to unite the
+							Lions Clubs of
 							Alberta in order to better serve the communities of our province.</p>
 						<button>
 							READ MORE
@@ -115,7 +119,7 @@ $the_query = new WP_Query( $args );
 	</div>
 
 	<!-- Testimonials section !-->
-	<section>
+	<section class="container">
 		<h2>Voices from the Festival</h2>
 		<!-- query loop for testimonials goes here !-->
 	</section>
@@ -125,9 +129,14 @@ $the_query = new WP_Query( $args );
 	<section class="volunteer">
 		<div class="container">
 			<div>
-				<h2>Be Part of the Magic: <br> Volunteer with us</h2>
-				<p>Help bring the excitement to life! Join our team and help make this winter festival unforgettable.</p>
-				<div class="button"><button> Sign up now</button></div>
+				<div>
+					<h2>Be Part of the Magic: <br> Volunteer with us</h2>
+					<p>Help bring the excitement to life! Join our team and help make this winter festival
+						unforgettable.</p>
+					
+					<button><a href="<?php echo home_url( '/volunteer/' ); ?>">SIGN UP NOW</a></button>
+				
+				</div>
 				<img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" alt="Snow Cabin" />
 			</div>
 		</div>
@@ -139,15 +148,20 @@ $the_query = new WP_Query( $args );
 			<h2>Sponsors</h2>
 			<div>
 				<img src="<?php bloginfo('stylesheet_directory');?>/img/tim-hay.png" alt="tim hay sponsor" />
-				<img src="<?php bloginfo('stylesheet_directory');?>/img/trucking-construction.png" alt="trucking construction sponsor" />
+				<img src="<?php bloginfo('stylesheet_directory');?>/img/trucking-construction.png"
+					alt="trucking construction sponsor" />
 				<img src="<?php bloginfo('stylesheet_directory');?>/img/agriculture.png" alt="agriculture sponsor" />
 				<img src="<?php bloginfo('stylesheet_directory');?>/img/rock-island.png" alt="rock island sponsor" />
-				<img src="<?php bloginfo('stylesheet_directory');?>/img/alberta-beach.png" alt="alberta beach sponsor" />
+				<img src="<?php bloginfo('stylesheet_directory');?>/img/alberta-beach.png"
+				alt="alberta beach sponsor" />
+				<img src="<?php bloginfo('stylesheet_directory');?>/img/lacste.png" alt="lacste anne county" />
 			</div>
 		</div>
 	</section>
+
 
 </main><!-- #main -->
 
 <?php
 get_footer();
+
