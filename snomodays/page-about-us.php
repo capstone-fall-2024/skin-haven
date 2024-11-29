@@ -15,14 +15,14 @@
 get_header();
 ?>
 
-<Section>
+<Section class="banner-container">
 <h1>About Us</h1>
 <p>Celebrating winter fun and community spirit, SnoMo Days is proudly hosted by the Alberta Beach & District Lions Club—a dedicated nonprofit serving our community through charity and service</p>
 </Section>
 </header><!-- #masthead -->
 	<main id="primary" class="site-main">
 		<!-- about snomo -->
-		<section class="snomo">
+		<section class="snomo container">
 			<div class="title">
 				<h2>ABOUT SNOMO DAYS</h2>
 				<div class="line"></div>
@@ -36,7 +36,7 @@ get_header();
 
 		<div class="background-container">
 		
-		<img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" class="floating-image" alt="Snow Cabin" />
+		<div class="floating-container"><img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" class="floating-image" alt="Snow Cabin" /></div>
 
 		</div>
 		
