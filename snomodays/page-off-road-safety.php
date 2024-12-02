@@ -14,7 +14,7 @@
 
 get_header();
 ?>
-<Section class="container">
+<Section class="banner-container">
 	<h1>Off-Road Safety</h1>
 </Section>
 </header><!-- #masthead -->
@@ -44,7 +44,7 @@ get_header();
 						<li>Carrying emergency supplies and learning survival skills. </li>
 					</ul>
 				</div>
-				<img class="large-img" src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" />
+				<img class="large-img" src="<?php bloginfo('stylesheet_directory');?>/img/off-road5.webp" />
 			</div>
 </section>
 	</div>
@@ -77,7 +77,7 @@ get_header();
 	</section>
 	<section class="off-highway">
 		<div class="container">
-			<img class="large-img" src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" />
+			<img class="large-img" src="<?php bloginfo('stylesheet_directory');?>/img/off-road4.webp" />
 			<div>
 				<div class="title-container">
 					<img src="<?php bloginfo('stylesheet_directory');?>/img/snowflake-short.png"
