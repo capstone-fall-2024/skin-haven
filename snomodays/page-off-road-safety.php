@@ -77,7 +77,7 @@ get_header();
 	</section>
 	<section class="off-highway">
 		<div class="container">
-			<img class="large-img" src="<?php bloginfo('stylesheet_directory');?>/img/off-road4.webp" />
+			<img class="large-img" src="<?php bloginfo('stylesheet_directory');?>/img/off-road2.webp" />
 			<div>
 				<div class="title-container">
 					<img src="<?php bloginfo('stylesheet_directory');?>/img/snowflake-short.png"

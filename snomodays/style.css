@@ -1732,6 +1732,10 @@ ul {
 	margin: 0 auto;
 }
 
+.off-highway .large-img {
+	object-fit: cover;
+}
+
 .guidelines,
 .off-highway {
 	background-color: white;
