@@ -1152,7 +1152,7 @@ ul {
 }
 
 /* Left snowflake */
-.featured .snowflake-left{
+.featured .snowflake-left {
 	top: 39%;
 	/* Center vertically within the title container */
 	transform: translateY(-50%);
@@ -1460,7 +1460,7 @@ ul {
 }
 
 #lionsClub,
-#snomoDays{
+#snomoDays {
 	text-decoration: none;
 	color: unset;
 	background-color: unset;
@@ -1470,7 +1470,7 @@ ul {
 }
 
 #lionsClub:hover,
-#snomoDays:hover{
+#snomoDays:hover {
 	text-decoration: none;
 	color: unset;
 	background-color: unset;
@@ -1491,7 +1491,7 @@ ul {
 
 .cancelled-tag {
 	font-weight: lighter;
-	background-color: #D93B3A ;
+	background-color: #D93B3A;
 	width: fit-content;
 	color: white;
 	padding: .25rem .8rem;
@@ -1500,22 +1500,6 @@ ul {
 	font-weight: 500;
 	font-size: .8rem;
 
-}
-
-.popup-flex{
-	display: flex;
-	gap: 1rem;
-	align-items: center;
-}
-
-.event-info{
-	display: flex;
-	justify-content: space-between;
-}
-
-.about-event h3{
-	border-bottom: 1px solid #B34242;
-	padding-bottom: 1rem;
 }
 
 
@@ -1549,6 +1533,7 @@ ul {
 	width: 300px;
 	border: 1px solid #D93B3A;
 	box-shadow: 4px 2px 10px rgba(0, 0, 0, 0.2);
+	height: auto;
 	position: relative;
 }
 
@@ -1580,7 +1565,7 @@ ul {
 }
 
 .cancelled .snowflake-long,
-.cancelled .snowflake-short  {
+.cancelled .snowflake-short {
 	display: none;
 }
 
@@ -2005,15 +1990,15 @@ ul {
 	align-items: center;
 }
 
-.get-in-touch svg{
+.get-in-touch svg {
 	min-width: 24px;
 }
 
-.get-in-touch .flex:nth-of-type(3){
+.get-in-touch .flex:nth-of-type(3) {
 	align-items: start;
 }
 
-.get-in-touch .flex:nth-of-type(3) svg{
+.get-in-touch .flex:nth-of-type(3) svg {
 	margin-top: 1rem;
 }
 
@@ -2297,7 +2282,7 @@ ul {
 		align-items: unset;
 	}
 
-	#event-list .event div{
+	#event-list .event div {
 		order: unset;
 	}
 
@@ -2309,19 +2294,21 @@ ul {
 		text-align: center;
 	}
 
-	.cancelled .snowflake-long {
-		display: block;
-		width: 4rem;
-		z-index: -2;
-		bottom: -50%;
-		right: 69%;
-	}
-
+	.cancelled .snowflake-long,
 	.cancelled .snowflake-short {
 		display: block;
 		width: 4rem;
-		z-index: -2;
-		bottom: -36%;
+		position: absolute;
+		z-index: -1;
+	}
+
+	.cancelled .snowflake-long {
+		bottom: -147px;
+		left: 12%;
+	}
+
+	.cancelled .snowflake-short {
+		bottom: -93px;
 		right: 11%;
 	}
 
@@ -2333,7 +2320,7 @@ ul {
 		justify-content: center;
 	}
 
-	.off-road-safety img, 
+	.off-road-safety img,
 	.off-highway img {
 		max-width: 20rem;
 	}
@@ -2441,19 +2428,19 @@ ul {
 		margin-left: 2rem;
 	}
 
-		/* forms styling */
-		.form {
-			display: flex;
-			margin: 1rem auto;
-			gap: 4rem;
-			align-items: top;
-			position: relative;
-		}
-	
-		.get-in-touch {
-			padding-left: 1rem;
-			padding-top: 5rem;
-		}
+	/* forms styling */
+	.form {
+		display: flex;
+		margin: 1rem auto;
+		gap: 4rem;
+		align-items: top;
+		position: relative;
+	}
+
+	.get-in-touch {
+		padding-left: 1rem;
+		padding-top: 5rem;
+	}
 }
 
 
