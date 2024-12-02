@@ -1502,6 +1502,23 @@ ul {
 
 }
 
+.popup-flex{
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
+.event-info{
+	display: flex;
+	justify-content: space-between;
+}
+
+.about-event h3{
+	border-bottom: 1px solid #B34242;
+	padding-bottom: 1rem;
+}
+
+
 
 #event-list .event {
 	display: flex;
