@@ -26,7 +26,7 @@ get_header();
 		$args = array(
 			'posts_per_page' => -1,
 			'post_type'      => 'gallery',
-			'title'     => 'image-gallery'
+			'title'     => 'Image Gallery'
 		);
 		
 		
