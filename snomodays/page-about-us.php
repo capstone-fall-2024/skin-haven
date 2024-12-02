@@ -22,6 +22,7 @@ get_header();
 </header><!-- #masthead -->
 	<main id="primary" class="site-main">
 		<!-- about snomo -->
+		<a id='snomoDays'>
 		<section class="snomo container">
 			<div class="title">
 				<h2>ABOUT SNOMO DAYS</h2>
@@ -33,7 +34,7 @@ get_header();
 			We invite you to join us for a memorable weekend and encourage you to get involved by volunteering or sponsoring the event. Together, let’s make this year’s SnoMo Days unforgettable!
 			</p>
 		</section>
-
+		</a>
 		<div class="background-container">
 		
 		<div class="floating-container"><img src="<?php bloginfo('stylesheet_directory');?>/img/about-us.webp" class="floating-image" alt="about us image" /></div>
@@ -41,6 +42,7 @@ get_header();
 		</div>
 		
 		<!-- about lions club -->
+		<a id="lionsClub">
 		<section class="lions-club">
 			<div class="container">
 				<div class="title">
@@ -50,11 +52,11 @@ get_header();
 				<p>The Alberta Beach & District Lions Club, a nonprofit organization, is dedicated to serving the community through various charitable initiatives and events, including the beloved SnoMo Days festival. As part of the Lions of Alberta Foundation, we unite with Lions Clubs across Alberta to make a greater impact. Where individual clubs may lack resources for a project, the Foundation enables collaboration, turning ambitious community projects into realities. Through the Foundation, we also provide tax-deductible receipts to help raise funds for Canadian community initiatives, supporting our mission to create positive change across the province.</p>
 				<p>To read more about Lions Club, visit our page!</p>
 				<button>
-					<a href="#">Lions Club</a>
+					<a href="https://www.facebook.com/profile.php?id=100064778316943">Lions Club</a>
 				</button>
 			</div>
 		</section>
-    
+		</a>
 	</main><!-- #main -->
 
 <?php

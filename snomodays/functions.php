@@ -206,17 +206,27 @@ $args = array(
 	),
 );
 
+
 // The Query
 $query = new WP_Query($args);
 
 if ($query->have_posts()) :
+
+	
 	while ($query->have_posts()) : $query->the_post();
 		// Get custom fields
-		$event_field = $post_title;
+		$cancelled = get_field('cancelled'); // Check if event is cancelled
 		$event_image = get_field('event_image');
 		?>
 		<div class="event"  data-post-id="<?php the_ID(); ?>">
-			<h2><?php echo get_the_title( $post_id ); ?></h2>
+			<div>
+				<?php if ($cancelled) : ?>
+							<p class="cancelled-tag">Cancelled</p>
+				<?php endif; ?>
+				<p><?php echo get_field('event_duration');?></p>
+				<h2><?php echo get_the_title( $post_id ); ?></h2>
+				<p><?php echo get_field('excerpt');?></p>
+			</div>
 			<?php if ($event_image) : ?>
 				<img src="<?php echo esc_url($event_image['url']); ?>" alt="<?php echo esc_attr($event_image['alt']); ?>">
 			<?php endif; ?>
@@ -274,7 +284,8 @@ function get_post_details() {
     }
 
     wp_die();  // Always call wp_die() to properly end the AJAX request
-}
+};
+
 
 // Hook for AJAX request to get post details
 add_action('wp_ajax_get_post_details', 'get_post_details');
@@ -282,5 +293,14 @@ add_action('wp_ajax_nopriv_get_post_details', 'get_post_details');
 
 
 
-
-
+function my_theme_scripts() {
+    // Check if we're on the 'Gallery' page (by slug or template)
+    if (is_page('gallery')) {
+        // Enqueue Masonry.js
+        wp_enqueue_script('masonry-js', get_template_directory_uri() . '/js/masonry.js', array('jquery'), null, true);
+        
+        // Enqueue custom script to initialize Masonry (optional)
+        wp_enqueue_script('custom-masonry', get_template_directory_uri() . '/js/custom-masonry.js', array('masonry-js'), null, true);
+    }
+}
+add_action('wp_enqueue_scripts', 'my_theme_scripts');

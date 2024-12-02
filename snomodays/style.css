@@ -1141,7 +1141,8 @@ ul {
 	text-align: center;
 }
 
-.featured .snowflake {
+.featured .snowflake,
+.form .snowflake {
 	position: absolute;
 	/* Position relative to the .title-container */
 	width: 16rem;
@@ -1151,7 +1152,7 @@ ul {
 }
 
 /* Left snowflake */
-.featured .snowflake-left {
+.featured .snowflake-left{
 	top: 39%;
 	/* Center vertically within the title container */
 	transform: translateY(-50%);
@@ -1441,6 +1442,8 @@ ul {
 	margin: 2rem 0;
 }
 
+
+
 /* Style for the floating image */
 .floating-image {
 	display: block;
@@ -1456,6 +1459,26 @@ ul {
 	margin-top: 3rem;
 }
 
+#lionsClub,
+#snomoDays{
+	text-decoration: none;
+	color: unset;
+	background-color: unset;
+	border: none;
+	padding: unset;
+	border-radius: unset;
+}
+
+#lionsClub:hover,
+#snomoDays:hover{
+	text-decoration: none;
+	color: unset;
+	background-color: unset;
+	border: none;
+	padding: unset;
+	border-radius: unset;
+}
+
 /*--------------- EVENTS POPUP -------------- */
 
 /* EVENTS PAGE */
@@ -1466,9 +1489,74 @@ ul {
 	margin: 2rem 0;
 }
 
-#event-list {
-	margin: 2rem 0;
+.cancelled-tag {
+	font-weight: lighter;
+	background-color: #D93B3A ;
+	width: fit-content;
+	color: white;
+	padding: .25rem .5rem;
+	border-radius: 1rem;
 }
+
+
+#event-list .event {
+	display: flex;
+	flex-direction: column;
+	margin: 1rem auto;
+	max-width: 615px;
+	gap: 1rem;
+	align-items: center;
+	width: 300px;
+	padding: 1rem;
+}
+
+#event-list .event div {
+	order: 2;
+}
+
+.cancelled {
+	background-color: white;
+	margin: 1rem auto;
+	border-radius: 13px;
+	padding-bottom: 1rem;
+	order: 2;
+	width: 300px;
+	border: 1px solid #D93B3A;
+}
+
+.cancelled h3 {
+	background-color: #D93B3A;
+	padding: .5rem;
+	color: white;
+	border-radius: 13px;
+	margin: 1rem;
+}
+
+.cancelled h2 {
+	padding: 1rem;
+	display: block;
+	margin: 0;
+	text-align: center;
+}
+
+.cancelled .section-line {
+	border: none;
+	/* Remove the default 3D border */
+	border-top: 1px solid #B34242;
+	/* Custom border style */
+	margin: 0;
+	/* Reset default margins */
+	width: 100%;
+	/* Span the full width of the parent */
+	background-color: unset;
+}
+
+#event-list .event img {
+	width: 245px;
+	height: fit-content;
+	border-radius: 1rem;
+}
+
 
 .filter-button {
 	color: black;
@@ -1873,6 +1961,44 @@ ul {
 	margin: 0 auto;
 }
 
+/* form pages padding*/
+.get-in-touch {
+	padding-left: 1rem;
+}
+
+.get-in-touch .flex {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
+.get-in-touch svg{
+	min-width: 24px;
+}
+
+.get-in-touch .flex:nth-of-type(3){
+	align-items: start;
+}
+
+.get-in-touch .flex:nth-of-type(3) svg{
+	margin-top: 1rem;
+}
+
+.underline {
+	border-bottom: 1px solid #B34242;
+}
+
+/* ---FOOTER----- */
+
+.gallery {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: .5rem;
+	padding: 2rem 0;
+
+}
+
 @media (min-width: 635px) {
 	.sub-header {
 		border-bottom: white 1px solid;
@@ -1898,6 +2024,11 @@ ul {
 		width: 19rem;
 		/* Increase snowflake size */
 		top: 59px;
+	}
+
+	.form .snowflake {
+		width: 19rem;
+		top: 80px;
 	}
 
 	.featured .snowflake-left {
@@ -2115,40 +2246,30 @@ ul {
 	}
 
 	/* ---EVENTS PAGE------  */
-	#event-list {
+	.event-page {
 		display: flex;
+		justify-content: space-between;
 		gap: 1rem;
+		align-items: start;
+	}
+
+	#event-list .event {
+		display: flex;
+		flex-direction: row;
+		margin: 1rem auto;
+		max-width: 615px;
+		justify-content: space-between;
+		width: unset;
+		gap: 1rem;
+		align-items: unset;
+	}
+
+	#event-list .event div{
+		order: unset;
 	}
 
 	/* CANCELLED */
-	.cancelled {
-		background-color: white;
-		margin: 1rem 0;
-		border-radius: 13px;
-		padding-bottom: 1rem;
-	}
-
-	.cancelled h3 {
-		background-color: #D93B3A;
-		padding: .5rem;
-		color: white;
-		border-radius: 13px;
-		margin: 1rem;
-	}
-
-	.section-line {
-		border: none;
-		/* Remove the default 3D border */
-		border-top: 1px solid #B34242;
-		/* Custom border style */
-		margin: 0;
-		/* Reset default margins */
-		width: 100%;
-		/* Span the full width of the parent */
-	}
-
 	.cancelled h2 {
-		/* border-bottom: #B34242 1px solid; */
 		padding: 1rem;
 		display: block;
 		margin: 0;
@@ -2270,6 +2391,20 @@ ul {
 	.site-footer section:not(.contact) {
 		margin-left: 2rem;
 	}
+
+		/* forms styling */
+		.form {
+			display: flex;
+			margin: 1rem auto;
+			gap: 4rem;
+			align-items: top;
+			position: relative;
+		}
+	
+		.get-in-touch {
+			padding-left: 1rem;
+			padding-top: 3rem;
+		}
 }
 
 
