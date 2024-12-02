@@ -15,7 +15,9 @@
     <div class="container">
         <div class="site-info">
             <div>
-                <img src="<?php bloginfo('stylesheet_directory');?>/img/logo.avif" />
+            <a href="<?php echo home_url( '/' ); ?>">
+						<img src="<?php bloginfo('stylesheet_directory');?>/img/logo.avif" alt="Snomo Logo"/>
+					</a>
                 <div class="social">
                     <a href="https://www.facebook.com/p/Alberta-Beach-SnoMo-Days-100076400911748/">
                         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -46,7 +48,20 @@
             <section>
                 <h4>Find</h4>
                 <ul>
-                    <li>Get Tickets</li>
+                   <?php 
+                         // args
+                         $args = array( 
+                         'posts_per_page' => -1,
+                         'post_type'     => 'ticket',
+                         );
+                         // query
+                         $the_query = new WP_Query( $args );
+                    ?>
+                    <?php if( $the_query->have_posts() ): ?>
+                    <?php while( $the_query->have_posts() ) : $the_query->the_post();?>
+                        <li><a href="<?php echo get_field('ticket_provider'); ?>">Get Tickets</a></li>
+                    <?php endwhile; ?>
+                    <?php endif; ?>
                     <li><a href="<?php echo home_url( '/events/' ); ?>">Events</a></li>
                     <li><a href="<?php echo home_url( '/gallery/' ); ?>">Gallery</a></li>
                 </ul>
