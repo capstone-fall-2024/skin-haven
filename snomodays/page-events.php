@@ -59,6 +59,10 @@ get_header();
                         <?php endif; ?>
                         <?php wp_reset_query();   // Restore global post data stomped by the_post(). ?>
                     </div>
+                    <img src="<?php bloginfo('stylesheet_directory');?>/img/snowflake-long.png" alt="snowflake"
+							class="snowflake snowflake-long" />
+                            <img src="<?php bloginfo('stylesheet_directory');?>/img/snowflake-long.png" alt="snowflake"
+							class="snowflake snowflake-short" />
                 </section>
                     <div id="event-list">
                         <!-- Events will be loaded here via AJAX -->

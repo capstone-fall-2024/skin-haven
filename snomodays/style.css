@@ -1373,7 +1373,7 @@ ul {
 }
 
 .sponsors div div img:nth-of-type(3) {
-	width: 80%;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -1494,8 +1494,12 @@ ul {
 	background-color: #D93B3A ;
 	width: fit-content;
 	color: white;
-	padding: .25rem .5rem;
+	padding: .25rem .8rem;
 	border-radius: 1rem;
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: .8rem;
+
 }
 
 
@@ -1510,6 +1514,12 @@ ul {
 	padding: 1rem;
 }
 
+#event-list .event p,
+#event-list .event h2 {
+	margin: .8rem 0 0;
+}
+
+
 #event-list .event div {
 	order: 2;
 }
@@ -1522,6 +1532,7 @@ ul {
 	order: 2;
 	width: 300px;
 	border: 1px solid #D93B3A;
+	box-shadow: 4px 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .cancelled h3 {
@@ -1549,6 +1560,11 @@ ul {
 	width: 100%;
 	/* Span the full width of the parent */
 	background-color: unset;
+}
+
+.cancelled .snowflake-long,
+.cancelled .snowflake-short  {
+	display: none;
 }
 
 #event-list .event img {
@@ -2249,7 +2265,7 @@ ul {
 	.event-page {
 		display: flex;
 		justify-content: space-between;
-		gap: 1rem;
+		gap: 2rem;
 		align-items: start;
 	}
 
@@ -2274,6 +2290,22 @@ ul {
 		display: block;
 		margin: 0;
 		text-align: center;
+	}
+
+	.cancelled .snowflake-long {
+		display: block;
+		width: 4rem;
+		z-index: -2;
+		bottom: -50%;
+		right: 29%;
+	}
+
+	.cancelled .snowflake-short {
+		display: block;
+		width: 4rem;
+		z-index: -2;
+		bottom: -42%;
+		right: 14%;
 	}
 
 	/* --OFF ROAD SAFETY--- */
