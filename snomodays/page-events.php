@@ -24,25 +24,13 @@ get_header();
 
 <main id="primary" class="site-main">
     <div class="container">
+        <div class="event-filters">
+            <button class="filter-button active" data-day="saturday"><span>SAT</span></button>
+            <button class="filter-button" data-day="sunday"><span>SUN</span></button>
+            <button class="filter-button" data-day="monday"><span>MON</span></button>
+        </div>
         <section class="event-page">
-                <div>
-                    <div class="event-filters">
-                        <button class="filter-button" data-day="saturday"><span>SAT</span></button>
-                        <button class="filter-button" data-day="sunday"><span>SUN</span></button>
-                        <button class="filter-button" data-day="monday"><span>MON</span></button>
-                    </div>
-                    <div id="event-list">
-                        <!-- Events will be loaded here via AJAX -->
-                    </div>
-                </div>
-            <!-- Modal Structure -->
-            <div id="modal" class="modal" style="display:none;">
-                <div class="modal-overlay"></div>
-                <div class="modal-container">
-                    <!-- Modal Content will be inserted here dynamically -->
-                </div>
-            </div>
-                <section class="cancelled">
+                    <section class="cancelled">
                     <h2>CANCELLED EVENTS</h3>
                     <hr class="section-line">
                     <div id="cancelledEvents">
@@ -64,7 +52,7 @@ get_header();
                         <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
                         <div>
                             <h3>
-                                <?php echo get_the_title( $post_id ); ?>
+                                <?php echo get_the_title(); ?>
                             </h3>
                         </div>
                         <?php endwhile; ?>
@@ -72,6 +60,18 @@ get_header();
                         <?php wp_reset_query();   // Restore global post data stomped by the_post(). ?>
                     </div>
                 </section>
+                    <div id="event-list">
+                        <!-- Events will be loaded here via AJAX -->
+                    </div>
+                
+            <!-- Modal Structure -->
+            <div id="modal" class="modal" style="display:none;">
+                <div class="modal-overlay"></div>
+                <div class="modal-container">
+                    <!-- Modal Content will be inserted here dynamically -->
+                </div>
+            </div>
+                
         </section>
     </div>
 </main><!-- #main -->

@@ -102,8 +102,8 @@
 								<li class="first-level">
 									<a href="<?php echo home_url( '/about-us/' ); ?>">About Us</a>
 									<ul class="indent">
-										<li><a href="#">Snomo Days</a></li>
-										<li><a href="#">Lions Club</a></li>
+										<li><a href="<?php echo home_url( '/about-us/' ); ?>#snomoDays">Snomo Days</a></li>
+										<li><a href="<?php echo home_url( '/about-us/' ); ?>#lionsClub">Lions Club</a></li>
 										<li><a href="<?php echo home_url( '/off-road-safety/' ); ?>">Off-Road Safety</a>
 										</li>
 									</ul>
@@ -126,7 +126,26 @@
 							<div>
 								<li><a href="<?php echo home_url( '/results/' ); ?>">Results</a></li>
 							</div>
-							<a href="#" class="header-button">Get Tickets</a>
+							<?php 
+
+                            // args
+                            $args = array( 
+                            'posts_per_page' => -1,
+                            'post_type'     => 'ticket',
+                            );
+
+
+                            // query
+                            $the_query = new WP_Query( $args );
+
+
+                             ?>
+                            <?php if( $the_query->have_posts() ): ?>
+                            <?php while( $the_query->have_posts() ) : $the_query->the_post();?>
+							<a href="<?php echo get_field('ticket_provider'); ?>" class="header-button">Get Tickets</a>
+							<?php endwhile; ?>
+                          <?php endif; ?>
+                          <?php wp_reset_query();?>
 						</ul>
 					</nav>
 				</div>

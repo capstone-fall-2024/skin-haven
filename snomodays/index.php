@@ -99,7 +99,7 @@ $the_query = new WP_Query( $args );
 							sports and family orientated winter leisure activities.
 						</p>
 						<button>
-							<a href="<?php echo home_url( '/about-us/#about-snomo' ); ?>">READ MORE</a>
+							<a href="<?php echo home_url( '/about-us/' ); ?>#snomoDays">READ MORE</a>
 						</button>
 					</div>
 				</Section>
@@ -110,7 +110,7 @@ $the_query = new WP_Query( $args );
 							Lions Clubs of
 							Alberta in order to better serve the communities of our province.</p>
 						<button>
-							READ MORE
+						<a href="<?php echo home_url( '/about-us/' ); ?>#lionsClub">READ MORE</a>
 						</button>
 					</div>
 				</section>
@@ -139,16 +139,38 @@ $the_query = new WP_Query( $args );
 	<section class="sponsors">
 		<div class="container">
 			<h2>Sponsors</h2>
-			<div>
-				<img src="<?php bloginfo('stylesheet_directory');?>/img/tim-hay.png" alt="tim hay sponsor" />
-				<img src="<?php bloginfo('stylesheet_directory');?>/img/trucking-construction.png"
-					alt="trucking construction sponsor" />
-				<img src="<?php bloginfo('stylesheet_directory');?>/img/agriculture.png" alt="agriculture sponsor" />
-				<img src="<?php bloginfo('stylesheet_directory');?>/img/rock-island.png" alt="rock island sponsor" />
-				<img src="<?php bloginfo('stylesheet_directory');?>/img/alberta-beach.png"
-				alt="alberta beach sponsor" />
-				<img src="<?php bloginfo('stylesheet_directory');?>/img/lacste.png" alt="lacste anne county" />
-			</div>
+			<div>	
+		<?php
+		// args
+		$args = array(
+			'posts_per_page' => -1,
+			'post_type'      => 'gallery',
+			'title'     => 'sponsers'
+		
+		);
+		
+		
+		// query
+		$the_query = new WP_Query( $args );
+		
+		
+		?>
+		<?php if( $the_query->have_posts() ): ?>
+			<?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+			<?php
+			$galleries = get_field('gallery');
+			foreach($galleries as $gallery){
+			?>
+			
+				<img src="<?php echo $gallery['metadata']['full']['file_url']; ?>">
+				
+			<?php } ?> 
+			<?php endwhile; ?>
+		<?php endif; ?>
+		
+		<?php wp_reset_query(); ?>
+
+	</div>
 		</div>
 	</section>
 

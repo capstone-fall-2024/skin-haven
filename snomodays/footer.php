@@ -36,8 +36,8 @@
             <section>
                 <h4>About Us</h4>
                 <ul>
-                    <li>SnoMo Days</li>
-                    <li>Lions Club</li>
+                    <li><a href="<?php echo home_url( '/about-us/' ); ?>#snomoDays">SnoMo Days</a></li>
+                    <li><a href="<?php echo home_url( '/about-us/' ); ?>#lionsClub">Lions Club</a></li>
                     <li><a href="<?php echo home_url( '/off-road-safety/' ); ?>">Off-Road
                             Safety</a></li>
                     <li><a href="<?php echo home_url( '/results/' ); ?>">Results</a></li>
