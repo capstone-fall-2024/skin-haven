@@ -25,39 +25,41 @@ get_header();
 <div class="container">
         <div class="fifty-fifty">
             <div class="sub-container">
-                <img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" alt="Snow Cabin" />
+                <img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" alt="raffle winner" />
                 <div>
                     <h2>50/50 Winner</h2>
                     <p>$4808.00</p>
                     <p>Mohamad Khalid</p>
                  </div>
+                 <img src="<?php bloginfo('stylesheet_directory');?>/img/snowflake-long.png" alt="snowflake"
+							class="snowflake snowflake-long" />
             </div>
         </div>
     </div>
     <div class="container grid-layout">
         <div>
-            <img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" alt="Snow Cabin" />
+            <img src="<?php bloginfo('stylesheet_directory');?>/img/drag-race.png" alt="Snowmobile Drag Races" />
             <div>
                 <h2>Snowmobile Drag Races</h2>
                 <p>Winner Name</p>
             </div>
         </div>
         <div>
-            <img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" alt="Snow Cabin" />
+            <img src="<?php bloginfo('stylesheet_directory');?>/img/poker-rally.png" alt="Snowmobile Poker Rally" />
             <div>
                 <h2>Snowmobile Poker Rally</h2>
                 <p>Winner Name</p>
             </div>
         </div>
         <div>
-            <img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" alt="Snow Cabin" />
+            <img src="<?php bloginfo('stylesheet_directory');?>/img/over-the-line.png" alt="Over the Line Snowball Tournament" />
             <div>
                 <h2>Over the Line Snowball Tournament</h2>
                 <p>Winner Name</p>
             </div>
         </div>
         <div>
-            <img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" alt="Snow Cabin" />
+            <img src="<?php bloginfo('stylesheet_directory');?>/img/broomball.png" alt="Broom Ball Tournament" />
             <div>
                 <h2>Broom Ball Tournament</h2>
                 <p>Winner Name</p>

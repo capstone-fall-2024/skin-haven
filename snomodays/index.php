@@ -117,13 +117,6 @@ $the_query = new WP_Query( $args );
 			</div>
 		</section>
 	</div>
-
-	<!-- Testimonials section !-->
-	<section class="container">
-		<h2>Voices from the Festival</h2>
-		<!-- query loop for testimonials goes here !-->
-	</section>
-
 	<!-- Volunteer section !-->
 
 	<section class="volunteer">
@@ -137,7 +130,7 @@ $the_query = new WP_Query( $args );
 					<button><a href="<?php echo home_url( '/volunteer/' ); ?>">SIGN UP NOW</a></button>
 				
 				</div>
-				<img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" alt="Snow Cabin" />
+				<img src="<?php bloginfo('stylesheet_directory');?>/img/volunteer1.webp" alt="volunteer image" />
 			</div>
 		</div>
 	</section>

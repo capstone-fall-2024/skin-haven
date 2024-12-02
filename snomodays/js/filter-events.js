@@ -115,3 +115,11 @@ jQuery(document).ready(function($) {
 
 
 });
+
+
+document.querySelectorAll('.event-filters button').forEach(button => {
+    button.addEventListener('click', () => {
+        document.querySelectorAll('.event-filters button').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+    });
+});

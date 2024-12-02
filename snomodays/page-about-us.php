@@ -36,7 +36,7 @@ get_header();
 
 		<div class="background-container">
 		
-		<div class="floating-container"><img src="<?php bloginfo('stylesheet_directory');?>/img/snowcabin.jpg" class="floating-image" alt="Snow Cabin" /></div>
+		<div class="floating-container"><img src="<?php bloginfo('stylesheet_directory');?>/img/about-us.webp" class="floating-image" alt="about us image" /></div>
 
 		</div>
 		
