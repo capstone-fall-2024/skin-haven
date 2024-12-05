@@ -146,6 +146,7 @@
 							<?php endwhile; ?>
                           <?php endif; ?>
                           <?php wp_reset_query();?>
-						</ul>
+							</ul>
 					</nav>
+					<img class='lc-logo' src="<?php bloginfo('stylesheet_directory');?>/img/lions-club-logo.png" alt="Lions Club Logo">
 				</div>
